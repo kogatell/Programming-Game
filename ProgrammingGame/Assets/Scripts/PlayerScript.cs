@@ -4,48 +4,66 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
-    #region Public variables
-    public float speed;
-    #endregion
-
-    #region Private variables
     private Rigidbody rb;
-    #endregion
-    // Start is called before the first frame update
+    private float timer;
+    private List<GameObject> goOnCollision;
     void Start()
     {
-        MoveHorizontal(10, 1, 100);
         rb = this.GetComponent<Rigidbody>();
+        setTimer(10);
+        //MoveHorizontal(1, 1, 10);
+        //Jump(1000);
     }
 
-    // Update is called once per frame
     void Update()
     {
+        timer -= Time.deltaTime;
+        if (timer >= 0)
+        {
+            MoveHorizontal(1, 1, 10);
+        }
         
+        if (Input.GetKeyDown(KeyCode.Space)) Jump(1000);
     }
-
 
     public void MoveHorizontal (float speed, int direction, float time)
     {
         //direction = 1 means that it'll move right direction = -1 means it'll move left
-        float _time = time;
-        _time -= Time.deltaTime;
-        if (time >= 0)
+        //setTimer(time);
+        Vector3 _speed = new Vector3(speed, 0, 0);
+        Debug.Log(Time.deltaTime);
+        this.transform.position += new Vector3(speed * direction / 100,0 , 0);
+    }
+
+    public void Jump(float force)
+    {
+        rb.AddForce(new Vector3(0, force, 0));
+    }
+
+    public void DestroyObject(string tag)
+    {
+        foreach (GameObject go in goOnCollision)
         {
-            Debug.LogError("Time can't be negative");
-            return;
-        }
-        while (_time >= 0)
-        {
-            if (direction == 1)
+            if (go.tag == tag)
             {
-                this.transform.position = new Vector3(this.transform.position.x + speed * Time.deltaTime, this.transform.position.y, this.transform.position.z);
-            }
-            if (direction == -1)
-            {
-                this.transform.position = new Vector3(this.transform.position.x - speed * Time.deltaTime, this.transform.position.y, this.transform.position.z);
+                Destroy(go);
             }
         }
-        Debug.Log("Time done");
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        //Check what gameObjects we collide with so we can destroy them when we are on range.
+        goOnCollision.Add(collision.gameObject);
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        goOnCollision.Remove(collision.gameObject);
+    }
+    
+    public void setTimer(float time)
+    {
+        timer = time;
     }
 }
