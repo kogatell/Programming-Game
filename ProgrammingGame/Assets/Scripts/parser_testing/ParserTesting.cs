@@ -27,7 +27,7 @@ public class ParserTesting : MonoBehaviour
             end
             j = 0
             for i=1,10 do j = j+i end
-            return j
+            return j + s
         ";
         
         

@@ -1,4 +1,7 @@
-﻿using System;
+﻿// ReSharper disable PossibleNullReferenceException
+// ReSharper disable CompareOfFloatsByEqualityOperator
+
+using System;
 using Relua.AST;
 using UnityEngine;
 
@@ -38,9 +41,7 @@ public class Eval
                 if (objLeft.IsError()) return objLeft;
                 Object objRight = EvalExpr(binOpExpr.Right);
                 if (objRight.IsError()) return objRight;
-                
                 return EvaluateBinaryOperation(objLeft, objRight, binOpExpr.Type);
-                break;
             }
             
             case Expressions.NumberLiteral:
@@ -302,9 +303,9 @@ public class Eval
         context.Set(name, startNumber);
         for (double i = startNumber.value; i < endNumber.value; i += stepNumber.value)
         {
+            startNumber.value = i;
             Object possibleError = EvaluateNode(block);
             if (possibleError.IsError()) return possibleError;
-            startNumber.value = i + stepNumber.value;
         }
         
         return Null.NULL;
