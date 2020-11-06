@@ -72,6 +72,7 @@ public class Eval
                     IExpression expr = assignment.Values[i];
                     IAssignable assignable = assignment.Targets[i];
                     Object result = EvalExpr(expr);
+                    if (result.IsError()) return result;
                     EvalAssignable(assignable, result);
                 }
                 break;
