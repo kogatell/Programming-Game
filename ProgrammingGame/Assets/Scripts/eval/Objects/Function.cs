@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Function : Object
 {
+    public const string Name = "Function";
+    
     private Eval localEvaluator;
     private FunctionDefinition definition;
     private Context ctx;
@@ -24,5 +26,10 @@ public class Function : Object
             ctx.Set(definition.ArgumentNames[i], obj);
         }
         return localEvaluator.EvaluateNode(definition.Block);
+    }
+
+    public override string GetType()
+    {
+        return "Function";
     }
 }

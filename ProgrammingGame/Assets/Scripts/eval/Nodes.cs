@@ -6,14 +6,17 @@ public static class Expressions
 {
     
     public const string FunctionDefinition = "FunctionDefinition";
+    public const string Variable = "Variable";
+    public const string NumberLiteral = "NumberLiteral";
 
-    
 
 }
 
 public static class Statements
 {
     public const string Assignment = "Assignment";
+
+    public const string FunctionCall = "FunctionCall";
 }
 
 public static class Assignables

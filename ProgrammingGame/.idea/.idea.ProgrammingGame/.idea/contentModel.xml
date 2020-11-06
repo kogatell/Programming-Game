@@ -15,6 +15,7 @@
             <e p="Objects" t="Include">
               <e p="Error.cs" t="Include" />
               <e p="Function.cs" t="Include" />
+              <e p="Number.cs" t="Include" />
               <e p="Object.cs" t="Include" />
             </e>
           </e>
