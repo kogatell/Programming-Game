@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Relua;
 using UnityEngine;
@@ -19,14 +20,21 @@ public class ParserTesting : MonoBehaviour
               end
             end 
 
-            fact(1)
+            s = fact(3)
+            return s
         ";
         
         
         ev = new Eval();
         var parser = new Parser(code, new Parser.Settings());
         var statements = parser.Read();
-        ev.EvaluateNode(statements);
+        var node = ev.EvaluateNode(statements);
+        Debug.Log($"evaluator returned a {node.GetType()} of val {node}");
+        if (node.IsError())
+        {
+            var err = node as Error;
+            Debug.LogWarning($"program returned the following error: {err.Message}");
+        }
     }
 
     // Update is called once per frame

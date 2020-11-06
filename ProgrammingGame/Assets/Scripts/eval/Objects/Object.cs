@@ -15,4 +15,19 @@ public abstract class Object
     {
         return GetType() == Error.Name;
     }
+
+    public Boolean ToBool()
+    {
+        if (GetType() == Null.Name)
+        {
+            return Boolean.False;
+        }
+
+        if (GetType() == Boolean.Name)
+        {
+            return this as Boolean;
+        }
+        
+        return Boolean.True;
+    }
 } 

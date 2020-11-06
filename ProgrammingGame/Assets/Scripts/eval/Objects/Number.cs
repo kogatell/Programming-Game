@@ -13,8 +13,19 @@ public class Number : Object
         value = n.Value;
     }
     
+    public Number(double n)
+    {
+        value = n;
+    }
+    
     public override string GetType()
     {
         return "Number";
     }
+
+    public override string ToString()
+    {
+        return $"{value}";
+    }
+    
 }

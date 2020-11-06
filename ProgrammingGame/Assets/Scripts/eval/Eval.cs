@@ -1,4 +1,5 @@
-﻿using Relua.AST;
+﻿using System;
+using Relua.AST;
 using UnityEngine;
 
 /// <summary>
@@ -18,7 +19,7 @@ public class Eval
     {
         if (expr == null)
         {
-            return null;
+            return Null.NULL;
         }
         string typeName = expr.GetType().Name;
         // When you wanna see the process of evaluation 
@@ -26,6 +27,22 @@ public class Eval
         //
         switch (typeName)
         {
+            // When a function call is called from an assignment or return
+            case Statements.FunctionCall:
+                return EvalStatement(expr as FunctionCall);
+
+            case Statements.BinaryOp:
+            {
+                BinaryOp binOpExpr = expr as BinaryOp;
+                Object objLeft  = EvalExpr(binOpExpr.Left);
+                if (objLeft.IsError()) return objLeft;
+                Object objRight = EvalExpr(binOpExpr.Right);
+                if (objRight.IsError()) return objRight;
+                
+                return EvaluateBinaryOperation(objLeft, objRight, binOpExpr.Type);
+                break;
+            }
+            
             case Expressions.NumberLiteral:
             {
                 NumberLiteral number = expr as NumberLiteral;
@@ -49,7 +66,7 @@ public class Eval
                 break;
         }
 
-        return null;
+        return Null.NULL;
     }
 
     private Object EvalStatement(IStatement statement)
@@ -78,6 +95,34 @@ public class Eval
                 break;
             }
 
+            case Statements.If:
+            {
+                If ifStmt = statement as If;
+                if (EvalExpr(ifStmt.MainIf.Condition).ToBool().value)
+                {
+                    
+                    return EvaluateNode(ifStmt.MainIf.Block);
+                }
+                
+                if (ifStmt.ElseIfs != null)
+                {
+                    foreach (ConditionalBlock condition in ifStmt.ElseIfs)
+                    {
+                        if (EvalExpr(condition.Condition).ToBool().value)
+                        {
+                            return EvaluateNode(condition.Block);
+                        }
+                    }
+                }
+                
+                if (ifStmt.Else != null)
+                {
+                    return EvaluateNode(ifStmt.Else);
+                }
+                
+                break;
+            }
+
             case Statements.FunctionCall:
             {
                 FunctionCall fc = statement as FunctionCall;
@@ -86,7 +131,7 @@ public class Eval
                 for (int i = 0; i < fc.Arguments.Count; ++i)
                 {
                     parameters[i] = EvalExpr(fc.Arguments[i]);
-                    if (parameters[i] == null || parameters[i].GetType() == Error.Name)
+                    if (parameters[i].GetType() == Error.Name)
                     {
                         return parameters[i];
                     }
@@ -100,7 +145,18 @@ public class Eval
                 Function fn = function as Function;
                 return fn.Call(parameters);
             }
-            
+
+
+            case Statements.Return:
+            {
+                Return returnStmt = statement as Return;
+                foreach (IExpression expr in returnStmt.Expressions)
+                {
+                    return EvalExpr(expr);
+                }
+                
+                break;
+            }
             
                 
             default: 
@@ -108,7 +164,7 @@ public class Eval
                 break;
         }
 
-        return null;
+        return Null.NULL;
     }
     
     private void EvalAssignable(IAssignable assignable, Object target)
@@ -135,7 +191,7 @@ public class Eval
     {
         if (node == null)
         {
-            return null;
+            return Null.NULL;
         }
         string typeName = node.GetType().Name;
         // When you wanna see the process of evaluation 
@@ -163,6 +219,58 @@ public class Eval
                 break;
         }
         
-        return null;
+        return Null.NULL;
+    }
+
+
+    private Object EvaluateBinaryOperation(Object left, Object right, BinaryOp.OpType type)
+    {
+        if (left.GetType() != right.GetType())
+        {
+            return new Error($@"
+                Unsupported different types in {type} operation
+                left side is a: {left.GetType()}
+                right side is a: {right.GetType()}
+            ");
+        }
+        if (left.GetType() == Number.Name && right.GetType() == Number.Name)
+        {
+            return EvaluateNumberOp(left as Number, right as Number, type);
+        }
+        return Null.NULL;
+    }
+
+    private Object EvaluateNumberOp(Number left, Number right, BinaryOp.OpType type)
+    {
+        switch (type)
+        {
+            case BinaryOp.OpType.Add:
+                return new Number(left.value + right.value);
+            case BinaryOp.OpType.Subtract:
+                return new Number(left.value - right.value);
+            case BinaryOp.OpType.Divide:
+                return new Number(left.value / right.value);
+            case BinaryOp.OpType.Power:
+                return new Number(Math.Pow(left.value, right.value));
+            case BinaryOp.OpType.Multiply:
+                return new Number(left.value * right.value);
+            case BinaryOp.OpType.Modulo:
+                return new Number(left.value % right.value);
+            case BinaryOp.OpType.Equal:
+                return Boolean.FromBool(left.value == right.value);
+            case BinaryOp.OpType.GreaterThan:
+                return Boolean.FromBool(left.value > right.value);
+            case BinaryOp.OpType.GreaterOrEqual:
+                return Boolean.FromBool(left.value >= right.value);
+            case BinaryOp.OpType.LessThan:
+                return Boolean.FromBool(left.value < right.value);
+            case BinaryOp.OpType.LessOrEqual:
+                return Boolean.FromBool(left.value <= right.value);
+            case BinaryOp.OpType.NotEqual:
+                return Boolean.FromBool(left.value != right.value);
+
+            default:
+                return new Error($"unsupported operation with numbers: {type}. Consider doing a type transformation");
+        }
     }
 }

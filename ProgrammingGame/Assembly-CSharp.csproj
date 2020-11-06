@@ -63,8 +63,10 @@
      <Compile Include="Assets\Scripts\eval\Context.cs" />
      <Compile Include="Assets\Scripts\eval\Eval.cs" />
      <Compile Include="Assets\Scripts\eval\Nodes.cs" />
+     <Compile Include="Assets\Scripts\eval\Objects\Boolean.cs" />
      <Compile Include="Assets\Scripts\eval\Objects\Error.cs" />
      <Compile Include="Assets\Scripts\eval\Objects\Function.cs" />
+     <Compile Include="Assets\Scripts\eval\Objects\Null.cs" />
      <Compile Include="Assets\Scripts\eval\Objects\Number.cs" />
      <Compile Include="Assets\Scripts\eval\Objects\Object.cs" />
      <Compile Include="Assets\Scripts\parser\Relua\Properties\AssemblyInfo.cs" />

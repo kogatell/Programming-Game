@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Error : Object
 {
-    public const string Name = "Function";
+    public const string Name = "Error";
     private string message;
+
+    public string Message => message;
     
     public Error(string msg)
     {
