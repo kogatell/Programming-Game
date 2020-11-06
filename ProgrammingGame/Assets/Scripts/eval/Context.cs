@@ -10,6 +10,7 @@ public class Context
 
     public Context(Context parent = null)
     {
+        ctx = new Dictionary<string, Object>();
         parentCtx = parent;
     }
 

@@ -27,7 +27,6 @@ public class Eval
             case Expressions.FunctionDefinition:
             {
                 FunctionDefinition func = expr as FunctionDefinition;
-                Debug.Log(expr.ToString());
                 return new Function(func, null);
             }
             
@@ -39,11 +38,11 @@ public class Eval
         return null;
     }
 
-    private void EvalStatement(IStatement statement)
+    private Object EvalStatement(IStatement statement)
     {
         if (statement == null)
         {
-            return;
+            return null;
         }
         string typeName = statement.GetType().Name;
         switch (typeName)
@@ -65,6 +64,8 @@ public class Eval
                 Debug.LogWarning($"unknown statement {typeName}");
                 break;
         }
+
+        return null;
     }
     
     private void EvalAssignable(IAssignable assignable, Object target)
@@ -87,22 +88,26 @@ public class Eval
         
     }
     
-    public Node EvaluateNode(Node node)
+    public Object EvaluateNode(Node node)
     {
         if (node == null)
         {
             return null;
         }
-        Debug.Log($"Root {node.GetType().Name}");
         string typeName = node.GetType().Name;
         switch (typeName)
         {
             case "Block":
             {
                 Block block = node as Block;
-                foreach (IStatement statement in block.Statements)
+                for (int i = 0; i < block.Statements.Count; i++)
                 {
-                    EvalStatement(statement);
+                    IStatement statement = block.Statements[i];
+                    Object obj = EvalStatement(statement);
+                    if (i == block.Statements.Count - 1 && obj != null)
+                    {
+                        return obj;
+                    }
                 }
                 break;
             }
@@ -111,9 +116,7 @@ public class Eval
                 Debug.LogWarning($"unimplemented AST.Node: {typeName}");
                 break;
         }
-
-
-
+        
         return null;
     }
 }
