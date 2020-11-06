@@ -30,4 +30,9 @@ public abstract class Object
         
         return Boolean.True;
     }
+
+    public bool IsNumeric()
+    {
+        return GetType() == Number.Name;
+    }
 } 

@@ -24,6 +24,8 @@ public static class Statements
 
     public const string BinaryOp = "BinaryOp";
 
+    public const string NumericFor = "NumericFor";
+
 }
 
 public static class Assignables

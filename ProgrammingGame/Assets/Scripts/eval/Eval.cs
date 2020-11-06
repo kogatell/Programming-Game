@@ -75,12 +75,25 @@ public class Eval
         {
             return null;
         }
+        
         string typeName = statement.GetType().Name;
         // When you wanna see the process of evaluation 
         // Debug.Log(typeName);
         //
         switch (typeName)
         {
+            case Statements.NumericFor:
+            {
+                NumericFor forStmt = statement as NumericFor;
+                Object startPoint = EvalExpr(forStmt.StartPoint);
+                if (startPoint.IsError()) return startPoint;
+                Object endPoint = EvalExpr(forStmt.EndPoint);
+                if (endPoint.IsError()) return endPoint;
+                Object step = EvalExpr(forStmt.Step);
+                if (step.IsError()) return step;
+                return EvaluateNumericForLoop(startPoint, endPoint, step, forStmt.Block, forStmt.VariableName);
+            }
+            
             case Statements.Assignment:
             {
                 Assignment assignment = statement as Assignment;
@@ -272,5 +285,28 @@ public class Eval
             default:
                 return new Error($"unsupported operation with numbers: {type}. Consider doing a type transformation");
         }
+    }
+
+
+    private Object EvaluateNumericForLoop(Object start, Object end, Object step, Block block, string name)
+    {
+        if (!start.IsNumeric())
+            return new Error($"expected on start expr a numeric value, instead got a {start.GetType()}");
+        if (!end.IsNumeric()) 
+            return new Error($"expected on end expr a numeric value, instead got a {end.GetType()}");
+        if (!step.IsNumeric()) 
+            return new Error($"expected on end step a numeric value, instead got a {step.GetType()}");
+        Number startNumber = start as Number;
+        Number endNumber = end as Number;
+        Number stepNumber = step as Number;
+        context.Set(name, startNumber);
+        for (double i = startNumber.value; i < endNumber.value; i += stepNumber.value)
+        {
+            Object possibleError = EvaluateNode(block);
+            if (possibleError.IsError()) return possibleError;
+            startNumber.value = i + stepNumber.value;
+        }
+        
+        return Null.NULL;
     }
 }
