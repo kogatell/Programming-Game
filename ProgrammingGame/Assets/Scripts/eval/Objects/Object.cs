@@ -16,6 +16,18 @@ public abstract class Object
         return GetType() == Error.Name;
     }
 
+    public Object ToNumber()
+    {
+        if (IsError()) return this;
+        if (IsNumeric()) return this;
+        if (GetType() == Boolean.Name)
+        {
+            return ToBool() == Boolean.True ? new Number(1) : new Number(0);
+        }
+        // TODO: String conversion
+        return new Error($"can't convert object of type {GetType()} to numeric");
+    }
+
     public Boolean ToBool()
     {
         if (GetType() == Null.Name)

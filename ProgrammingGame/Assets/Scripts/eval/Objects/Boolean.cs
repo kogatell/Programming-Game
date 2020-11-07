@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Boolean : Object
 {
-    public bool value = false;
-
+    private bool value = false;
     public const string Name = "Boolean";
     public static readonly Boolean True  = new Boolean(true);
     public static readonly Boolean False = new Boolean(false);
+
+    public bool Value => value;
     
     private Boolean(bool b)
     {
@@ -29,6 +30,10 @@ public class Boolean : Object
     {
         return True == this ? False : True;
     }
-    
-    
+
+    public override string ToString()
+    {
+        return value.ToString();
+    }
+
 }

@@ -24,7 +24,9 @@ public class Eval
         {
             return Null.NULL;
         }
+        
         string typeName = expr.GetType().Name;
+        
         // When you wanna see the process of evaluation 
         // Debug.Log(typeName);
         //
@@ -43,6 +45,13 @@ public class Eval
                 if (objRight.IsError()) return objRight;
                 return EvaluateBinaryOperation(objLeft, objRight, binOpExpr.Type);
             }
+
+            case Expressions.UnaryOp:
+            {
+                UnaryOp unaryOp = expr as UnaryOp;
+                Object rightVal = EvalExpr(unaryOp.Expression);
+                return EvalUnaryOp(rightVal, unaryOp.Type);
+            }
             
             case Expressions.NumberLiteral:
             {
@@ -55,6 +64,11 @@ public class Eval
                 Variable variable = expr as Variable;
                 //Debug.Log(variable);
                 return context.Get(variable.Name);
+            }
+
+            case Expressions.BoolLiteral:
+            {
+                return Boolean.FromBool((expr as BoolLiteral).Value);
             }
             
             case Expressions.FunctionDefinition:
@@ -132,7 +146,7 @@ public class Eval
             case Statements.If:
             {
                 If ifStmt = statement as If;
-                if (EvalExpr(ifStmt.MainIf.Condition).ToBool().value)
+                if (EvalExpr(ifStmt.MainIf.Condition).ToBool().Value)
                 {
                     return EvaluateNode(ifStmt.MainIf.Block);
                 }
@@ -141,7 +155,7 @@ public class Eval
                 {
                     foreach (ConditionalBlock condition in ifStmt.ElseIfs)
                     {
-                        if (EvalExpr(condition.Condition).ToBool().value)
+                        if (EvalExpr(condition.Condition).ToBool().Value)
                         {
                             return EvaluateNode(condition.Block);
                         }
@@ -226,6 +240,37 @@ public class Eval
         }
         
     }
+
+    private Object EvalUnaryOp(Object right, UnaryOp.OpType type)
+    {
+        switch (type)
+        {
+            case UnaryOp.OpType.Negate:
+            {
+                if (!right.IsNumeric()) 
+                    return new Error($"expected numeric value on unary op, got={right.GetType()}");
+                (right as Number).value = -(right as Number).value;
+                return right;
+            }
+            
+            case UnaryOp.OpType.Invert:
+            {
+                return right.ToBool().Bang();
+            }
+
+            case UnaryOp.OpType.Length:
+            {
+                return new Error("TODO: Optype.Length");
+            }
+
+            default:
+            {
+                Debug.LogWarning("unknown unary op type");
+                break;
+            }
+        }
+        return Null.NULL;
+    } 
     
     public Object EvaluateNode(Node node)
     {
@@ -266,19 +311,17 @@ public class Eval
 
     private Object EvaluateBinaryOperation(Object left, Object right, BinaryOp.OpType type)
     {
-        if (left.GetType() != right.GetType())
-        {
-            return new Error($@"
-                Unsupported different types in {type} operation
-                left side is a: {left.GetType()}
-                right side is a: {right.GetType()}
-            ");
-        }
-        if (left.GetType() == Number.Name && right.GetType() == Number.Name)
+        left = left.ToNumber();
+        right = right.ToNumber();
+        if (left.IsNumeric() && left.IsNumeric())
         {
             return EvaluateNumberOp(left as Number, right as Number, type);
         }
-        return Null.NULL;
+        return new Error($@"
+                Unsupported different types in {type} operation
+                left: {left}
+                right: {right}
+            ");
     }
 
     private Object EvaluateNumberOp(Number left, Number right, BinaryOp.OpType type)

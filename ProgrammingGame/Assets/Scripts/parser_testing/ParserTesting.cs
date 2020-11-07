@@ -29,8 +29,10 @@ public class ParserTesting : MonoBehaviour
             end
             j, x, z = f(0), 1
             for i=1,10 do j = j + i end
-            return j + s + x + z
-        ";
+            something = true
+            
+            return j + s + x + z + not something
+        "; // return j + s + x + z
         
         
         ev = new Eval();
