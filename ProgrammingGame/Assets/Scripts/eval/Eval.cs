@@ -53,6 +53,7 @@ public class Eval
             case Expressions.Variable:
             {
                 Variable variable = expr as Variable;
+                //Debug.Log(variable);
                 return context.Get(variable.Name);
             }
             
@@ -98,13 +99,32 @@ public class Eval
             case Statements.Assignment:
             {
                 Assignment assignment = statement as Assignment;
-                for (int i = 0; i < assignment.Values.Count; i++)
+                int j, i;
+                for (i = 0, j = 0; i < assignment.Values.Count; i++)
                 {
                     IExpression expr = assignment.Values[i];
-                    IAssignable assignable = assignment.Targets[i];
                     Object result = EvalExpr(expr);
                     if (result.IsError()) return result;
-                    EvalAssignable(assignable, result);
+                    if (result.GetType() != ReturnHolder.Name)
+                    {
+                        if (j >= assignment.Targets.Count) return new Error("too few variables in destructuring");
+                        IAssignable assignable = assignment.Targets[j];
+                        EvalAssignable(assignable, result);
+                        j++;
+                        continue;
+                    }
+                    ReturnHolder returnHold = result as ReturnHolder;
+                    foreach (Object returnVal in returnHold.Returns)
+                    {
+                        if (j >= assignment.Targets.Count) return new Error("too few variables in destructuring");
+                        IAssignable assignable = assignment.Targets[j];
+                        EvalAssignable(assignable, returnVal);
+                        j++;
+                    }
+                }
+                if (j != assignment.Targets.Count)
+                {
+                    return new Error("too much variables in destructuring");
                 }
                 break;
             }
@@ -114,7 +134,6 @@ public class Eval
                 If ifStmt = statement as If;
                 if (EvalExpr(ifStmt.MainIf.Condition).ToBool().value)
                 {
-                    
                     return EvaluateNode(ifStmt.MainIf.Block);
                 }
                 
@@ -159,20 +178,27 @@ public class Eval
                 Function fn = function as Function;
                 return fn.Call(parameters);
             }
-
-
+            
             case Statements.Return:
             {
                 Return returnStmt = statement as Return;
-                foreach (IExpression expr in returnStmt.Expressions)
+                // Don't return a return holder because evaluating a ReturnHolder on
+                // every Exp parsing would be a mess.
+                if (returnStmt.Expressions.Count == 1)
                 {
-                    return EvalExpr(expr);
+                    return EvalExpr(returnStmt.Expressions[0]);
                 }
-                
-                break;
+                // Now we know there are 2 variables at least being returned by this function.
+                // Create a return holder which will be parsed in the Assignment case
+                Object[] returnsRes = new Object[returnStmt.Expressions.Count];
+                for (int i = 0; i < returnsRes.Length; ++i)
+                {
+                    returnsRes[i] = EvalExpr(returnStmt.Expressions[i]);
+                    if (returnsRes[i].IsError()) return returnsRes[i];
+                }
+                return new ReturnHolder(returnsRes);
             }
-            
-                
+
             default: 
                 Debug.LogWarning($"unknown statement {typeName}");
                 break;
@@ -220,7 +246,8 @@ public class Eval
                 {
                     IStatement statement = block.Statements[i];
                     Object obj = EvalStatement(statement);
-                    if (i == block.Statements.Count - 1 && obj != null)
+                    if (obj.IsError()) return obj;
+                    if (i == block.Statements.Count - 1)
                     {
                         return obj;
                     }

@@ -20,14 +20,16 @@ public class ParserTesting : MonoBehaviour
                 return n * fact(n-1)
               end
             end 
-
             s = fact(3)
             if s == 42 then
                 s = s + 1
             end
-            j = 0
-            for i=1,10 do j = j+i end
-            return j + s
+            function f(c)
+                return 0, 1
+            end
+            j, x, z = f(0), 1
+            for i=1,10 do j = j + i end
+            return j + s + x + z
         ";
         
         

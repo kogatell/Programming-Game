@@ -69,6 +69,7 @@
      <Compile Include="Assets\Scripts\eval\Objects\Null.cs" />
      <Compile Include="Assets\Scripts\eval\Objects\Number.cs" />
      <Compile Include="Assets\Scripts\eval\Objects\Object.cs" />
+     <Compile Include="Assets\Scripts\eval\Objects\ReturnHolder.cs" />
      <Compile Include="Assets\Scripts\parser\Relua\Properties\AssemblyInfo.cs" />
      <Compile Include="Assets\Scripts\parser\Relua\src\AST.cs" />
      <Compile Include="Assets\Scripts\parser\Relua\src\Exception.cs" />

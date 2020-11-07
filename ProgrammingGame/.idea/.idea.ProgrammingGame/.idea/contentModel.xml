@@ -19,6 +19,7 @@
               <e p="Null.cs" t="Include" />
               <e p="Number.cs" t="Include" />
               <e p="Object.cs" t="Include" />
+              <e p="ReturnHolder.cs" t="Include" />
             </e>
           </e>
           <e p="parser" t="Include">
