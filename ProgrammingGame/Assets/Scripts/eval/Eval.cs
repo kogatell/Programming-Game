@@ -5,6 +5,7 @@ using System;
 using System.Linq;
 using Relua.AST;
 using UnityEngine;
+using static Stdlib.Stdlib;
 
 /// <summary>
 /// Eval evaluates a Lua AST on the run
@@ -15,7 +16,7 @@ public class Eval
     
     public Eval(Context ctx = null)
     {
-        context = ctx ?? new Context();
+        context = ctx ?? GetStandardLibrary();
     }
 
 
@@ -246,13 +247,11 @@ public class Eval
                         return parameters[i];
                     }
                 }
-
-                if (function.GetType() != Function.Name)
+                if (function.GetType() != Function.Name && function.GetType() != StdLibFunc.Name)
                 {
                     return new Error($"function call is not a function");
                 }
-
-                Function fn = function as Function;
+                Caller fn = function as Caller;
                 return fn.Call(parameters);
             }
             

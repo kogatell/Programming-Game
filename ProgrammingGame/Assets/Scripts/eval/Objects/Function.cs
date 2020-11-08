@@ -3,7 +3,12 @@ using System.Collections.Generic;
 using Relua.AST;
 using UnityEngine;
 
-public class Function : Object
+public interface Caller
+{
+    Object Call(Object[] parameters);
+}
+
+public class Function : Object, Caller
 {
     public const string Name = "Function";
     

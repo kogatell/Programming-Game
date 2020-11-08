@@ -22,6 +22,7 @@ public class ParserTesting : MonoBehaviour
             for i=0, #arr do -- #arr gets length of the array, which is 4
                 arr[i] = arr[i] * 2
             end
+            append(arr, 10)
             function fact (n)
               if n == 0 then
                 return (1 / 2) * (3 * 5 + 1) / 2 + 3

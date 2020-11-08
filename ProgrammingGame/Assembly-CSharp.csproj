@@ -72,7 +72,9 @@
      <Compile Include="Assets\Scripts\eval\Objects\Object.cs" />
      <Compile Include="Assets\Scripts\eval\Objects\ReturnHolder.cs" />
      <Compile Include="Assets\Scripts\eval\Objects\Slice.cs" />
+     <Compile Include="Assets\Scripts\eval\Objects\StdLibFunc.cs" />
      <Compile Include="Assets\Scripts\eval\Objects\String.cs" />
+     <Compile Include="Assets\Scripts\eval\StdLib\Stdlib.cs" />
      <Compile Include="Assets\Scripts\parser\Relua\Properties\AssemblyInfo.cs" />
      <Compile Include="Assets\Scripts\parser\Relua\src\AST.cs" />
      <Compile Include="Assets\Scripts\parser\Relua\src\Exception.cs" />
