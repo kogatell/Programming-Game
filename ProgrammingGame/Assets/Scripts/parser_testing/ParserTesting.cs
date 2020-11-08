@@ -38,7 +38,7 @@ public class ParserTesting : MonoBehaviour
                 return 0, 1
             end
             a = ""1"" .. ""2""[0]
-            j, x, z = f(0), 1
+            j, x, z = f(0), 1 -- Example of destructuring. 0, 1, 1
             for i=1,10 do j = j + i end 
             something = true
             return j + s + x + z + not something + a + arr[-1]
