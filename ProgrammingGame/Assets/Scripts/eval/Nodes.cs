@@ -13,7 +13,13 @@ public static class Expressions
 
     public const string UnaryOp = "UnaryOp";
 
-    public const string BoolLiteral = "BoolLiteral";
+    public const string BoolLiteral   = "BoolLiteral";
+    
+    public const string StringLiteral = "StringLiteral";
+    
+    public const string TableConstructor = "TableConstructor";
+    
+    public const string TableAccess = "TableAccess";
 }
 
 public static class Statements
@@ -35,4 +41,6 @@ public static class Statements
 public static class Assignables
 {
     public const string Variable = "Variable";
+
+    public const string TableAccess = "TableAccess";
 }

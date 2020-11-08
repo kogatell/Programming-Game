@@ -2,6 +2,7 @@
 // ReSharper disable CompareOfFloatsByEqualityOperator
 
 using System;
+using System.Linq;
 using Relua.AST;
 using UnityEngine;
 
@@ -44,6 +45,68 @@ public class Eval
                 Object objRight = EvalExpr(binOpExpr.Right);
                 if (objRight.IsError()) return objRight;
                 return EvaluateBinaryOperation(objLeft, objRight, binOpExpr.Type);
+            }
+
+            case Expressions.TableConstructor:
+            {
+                TableConstructor table = expr as TableConstructor;
+                Object[] objects = new Object[table.Entries.Count];
+                Object[] keys = new Object[table.Entries.Count];
+                bool isArray = true;
+                for (int i = 0; i < table.Entries.Count; ++i)
+                {
+                    Object key   = EvalExpr(table.Entries[i].Key);
+                    Object value = EvalExpr(table.Entries[i].Value);
+                    objects[i] = value;
+                    keys[i] = key;
+                    if (!(key is Number))
+                        isArray = false;
+                }
+                if (isArray) return new ArrayObject(objects.ToList());
+                // TODO: HashMap
+                break;
+            }
+
+            case Expressions.TableAccess:
+            {
+                TableAccess ta = expr as TableAccess;
+                Object idx = EvalExpr(ta.Index);
+                Object variable = EvalExpr(ta.Table);
+                
+                if (variable is String str)
+                {
+                    if (idx is Slice sliceStr)
+                    {
+                        if (str.Value.Length < sliceStr.End || 0 > sliceStr.Start || sliceStr.Start > sliceStr.End)
+                            return new Error(
+                                $"bad slice formation in string: {sliceStr} with length {str.Value.Length}");
+                        return new String(str.Value.Substring(sliceStr.Start, sliceStr.End - sliceStr.Start));
+                    }
+                    Object idxNumber = idx.ToNumber();
+                    if (idxNumber.IsError()) return idxNumber;
+                    int i = (int) (idxNumber as Number).value;
+                    if (i >= str.Value.Length || i < 0)
+                        return new Error($"string access out of bounds: length {str.Value.Length} idx: {i}");
+                    return new String(str.Value[i].ToString());
+                }
+                
+                if (!(variable is ArrayObject))
+                {
+                    break;
+                }
+                if (idx is Slice slice)
+                {
+                    return (variable as ArrayObject).Slice(slice.Start, slice.End);
+                }
+                Object idxN = idx.ToNumber();
+                if (idxN.IsError()) return idxN;
+                return (variable as ArrayObject).Get((int) (idxN as Number).value);
+            }
+
+            case Expressions.StringLiteral:
+            {
+                StringLiteral str = expr as StringLiteral;
+                return new String(str.Value);
             }
 
             case Expressions.UnaryOp:
@@ -221,9 +284,9 @@ public class Eval
         return Null.NULL;
     }
     
-    private void EvalAssignable(IAssignable assignable, Object target)
+    private Object EvalAssignable(IAssignable assignable, Object target)
     {
-        if (assignable == null) return;
+        if (assignable == null) return Null.NULL;
         
         switch (assignable.GetType().Name)
         {
@@ -233,12 +296,43 @@ public class Eval
                 context.Set(variable.Name, target);
                 break;
             }
+
+            case Assignables.TableAccess:
+            {
+                TableAccess acc = assignable as TableAccess;
+                Object idx = EvalExpr(acc.Index);
+                Object value = EvalExpr(acc.Table);
+                if (value == null) return new Error("unexpected error accessing table");
+                if (value is ArrayObject)
+                {
+                    if (idx is Slice slice)
+                    {
+                        return new Error("you can't use a slice for assignable table access");
+                    }
+                    idx = idx.ToNumber();
+                    if (!idx.IsNumeric())
+                    {
+                        return new Error($"couldn't pass index {idx} to numeric value or slice");
+                    }
+
+                    Object possibleErr = (value as ArrayObject).Set((int) (idx as Number).value, target);
+                    if (possibleErr.IsError()) return possibleErr;
+                    return Null.NULL;
+                }
+
+                if (value is String)
+                {
+                    return new Error("strings are immutable by default");
+                }
+
+                return Null.NULL;
+            }
             
             default:
                 Debug.LogWarning($"unknown assignable: {assignable.GetType().Name}");
                 break;
         }
-        
+        return Null.NULL;
     }
 
     private Object EvalUnaryOp(Object right, UnaryOp.OpType type)
@@ -260,7 +354,15 @@ public class Eval
 
             case UnaryOp.OpType.Length:
             {
-                return new Error("TODO: Optype.Length");
+                switch (right)
+                {
+                    case String str:
+                        return new Number(str.Value.Length);
+                    case ArrayObject arr:
+                        return new Number(arr.array.Count);
+                    default:
+                        return new Error($"can't get length of type {right.GetType()}");
+                }
             }
 
             default:
@@ -311,17 +413,57 @@ public class Eval
 
     private Object EvaluateBinaryOperation(Object left, Object right, BinaryOp.OpType type)
     {
-        left = left.ToNumber();
-        right = right.ToNumber();
-        if (left.IsNumeric() && left.IsNumeric())
+        if (type == BinaryOp.OpType.Concat)
         {
-            return EvaluateNumberOp(left as Number, right as Number, type);
+            return EvaluateConcatOp(left, right);
         }
-        return new Error($@"
+        
+        if (left is Number || right is Number)
+        {
+            left = left.ToNumber();
+            right = right.ToNumber();
+            if (left.IsNumeric() && left.IsNumeric())
+            {
+                return EvaluateNumberOp(left as Number, right as Number, type);
+            }
+            return new Error($@"
                 Unsupported different types in {type} operation
                 left: {left}
                 right: {right}
-            ");
+            ");    
+        }
+
+        return new Error($"can't operate between {left} and {right} on {type}");
+    }
+
+    private Object EvaluateConcatOp(Object left, Object right)
+    {
+        if (right is Slice slice)
+        {
+            switch (left)
+            {
+                case ArrayObject s:
+                    return s.Slice(slice.Start, slice.End);
+            }
+
+            return new Error($"can't slice left variable of type {left.GetType()}");
+        }
+        if (left.GetType() != right.GetType())
+        {
+            return new Error($"can't concatenate different types {left.GetType()} and {right.GetType()}");
+        }
+
+        switch (left)
+        {
+            case String s:
+                return new String(s.Value + (right as String).Value);
+            case Number number:
+                return new Slice(number, right as Number);
+            case ArrayObject arr:
+                return arr.Concatenate(right as ArrayObject);
+            default:
+                return new Error($"can't operate on {left.GetType()}s");
+        }
     }
 
     private Object EvaluateNumberOp(Number left, Number right, BinaryOp.OpType type)

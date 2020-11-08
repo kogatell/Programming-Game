@@ -9,10 +9,19 @@ public class ParserTesting : MonoBehaviour
 {
     private Eval ev;
     
-    // Start is called before the first frame update
+    /// <summary>
+    /// This code is just for testing
+    ///
+    /// you can play around the code in the code variable
+    /// </summary>
     void Start()
     {
+        // Code containing all the features of the language
         string code = @"
+            arr = {1, 2, 3, ""4"", 5}[0 .. 4] .. { 6 } --  slice to { 1,2,3,4, 6 }
+            for i=0, #arr do -- #arr gets length of the array, which is 4
+                arr[i] = arr[i] * 2
+            end
             function fact (n)
               if n == 0 then
                 return (1 / 2) * (3 * 5 + 1) / 2 + 3
@@ -27,12 +36,12 @@ public class ParserTesting : MonoBehaviour
             function f(c)
                 return 0, 1
             end
+            a = ""1"" .. ""2""[0]
             j, x, z = f(0), 1
-            for i=1,10 do j = j + i end
+            for i=1,10 do j = j + i end 
             something = true
-            
-            return j + s + x + z + not something
-        "; // return j + s + x + z
+            return j + s + x + z + not something + a + arr[-1]
+        ";
         
         
         ev = new Eval();

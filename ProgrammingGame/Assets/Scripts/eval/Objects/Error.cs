@@ -19,4 +19,8 @@ public class Error : Object
         return "Error";
     }
 
+    public override string ToString()
+    {
+        return message;
+    }
 }

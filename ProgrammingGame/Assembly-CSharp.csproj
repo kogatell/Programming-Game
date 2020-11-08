@@ -63,6 +63,7 @@
      <Compile Include="Assets\Scripts\eval\Context.cs" />
      <Compile Include="Assets\Scripts\eval\Eval.cs" />
      <Compile Include="Assets\Scripts\eval\Nodes.cs" />
+     <Compile Include="Assets\Scripts\eval\Objects\ArrayObject.cs" />
      <Compile Include="Assets\Scripts\eval\Objects\Boolean.cs" />
      <Compile Include="Assets\Scripts\eval\Objects\Error.cs" />
      <Compile Include="Assets\Scripts\eval\Objects\Function.cs" />
@@ -70,6 +71,8 @@
      <Compile Include="Assets\Scripts\eval\Objects\Number.cs" />
      <Compile Include="Assets\Scripts\eval\Objects\Object.cs" />
      <Compile Include="Assets\Scripts\eval\Objects\ReturnHolder.cs" />
+     <Compile Include="Assets\Scripts\eval\Objects\Slice.cs" />
+     <Compile Include="Assets\Scripts\eval\Objects\String.cs" />
      <Compile Include="Assets\Scripts\parser\Relua\Properties\AssemblyInfo.cs" />
      <Compile Include="Assets\Scripts\parser\Relua\src\AST.cs" />
      <Compile Include="Assets\Scripts\parser\Relua\src\Exception.cs" />

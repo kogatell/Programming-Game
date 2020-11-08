@@ -13,6 +13,7 @@
             <e p="Eval.cs" t="Include" />
             <e p="Nodes.cs" t="Include" />
             <e p="Objects" t="Include">
+              <e p="ArrayObject.cs" t="Include" />
               <e p="Boolean.cs" t="Include" />
               <e p="Error.cs" t="Include" />
               <e p="Function.cs" t="Include" />
@@ -20,6 +21,8 @@
               <e p="Number.cs" t="Include" />
               <e p="Object.cs" t="Include" />
               <e p="ReturnHolder.cs" t="Include" />
+              <e p="Slice.cs" t="Include" />
+              <e p="String.cs" t="Include" />
             </e>
           </e>
           <e p="parser" t="Include">
