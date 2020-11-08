@@ -187,7 +187,8 @@ public class Eval
                     {
                         if (j >= assignment.Targets.Count) return new Error("too few variables in destructuring");
                         IAssignable assignable = assignment.Targets[j];
-                        EvalAssignable(assignable, result);
+                        Object possibleErr = EvalAssignable(assignable, result);
+                        if (possibleErr.IsError()) return possibleErr;
                         j++;
                         continue;
                     }
@@ -196,7 +197,8 @@ public class Eval
                     {
                         if (j >= assignment.Targets.Count) return new Error("too few variables in destructuring");
                         IAssignable assignable = assignment.Targets[j];
-                        EvalAssignable(assignable, returnVal);
+                        Object possibleErr = EvalAssignable(assignable, returnVal);
+                        if (possibleErr.IsError()) return possibleErr;
                         j++;
                     }
                 }
