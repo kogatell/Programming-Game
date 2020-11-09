@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System;
 
-public class String : Object
+public class String : Object, IEquatable<String>, Hashable
 {
     private string value = "";
     
@@ -14,7 +12,7 @@ public class String : Object
         this.value = value;
     }
     
-    public override string GetType()
+    public override string Type()
     {
         return "String";
     }
@@ -23,5 +21,26 @@ public class String : Object
     {
         return $"\"{value}\"";
     }
-    
+
+    public bool Equals(String other)
+    {
+        if (other == null)
+        {
+            return false;
+        }
+        return string.Equals(value, other.value);
+    }
+
+    public override bool Equals(object obj)
+    {
+        if (ReferenceEquals(null, obj)) return false;
+        if (ReferenceEquals(this, obj)) return true;
+        if (obj.GetType() != GetType()) return false;
+        return Equals((String) obj);
+    }
+
+    public override int GetHashCode()
+    {
+        return Value != null ? Value.GetHashCode() : 0;
+    }
 }

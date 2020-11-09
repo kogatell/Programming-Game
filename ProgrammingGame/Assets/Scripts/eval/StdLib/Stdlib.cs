@@ -1,6 +1,7 @@
 ﻿
 
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Stdlib
 {
@@ -10,7 +11,8 @@ namespace Stdlib
         public static Context GetStandardLibrary()
         {
             Context dict = new Context();
-            dict.Set("append", new StdLibFunc(Append)); 
+            dict.Set("append", new StdLibFunc(Append));
+            dict.Set("print", new StdLibFunc(Print)); 
             return dict;
         }
 
@@ -39,6 +41,29 @@ namespace Stdlib
                 {
                     arr.Append(parameters[i]);
                 }
+            }
+            return Null.NULL;
+        }
+
+        /// <summary>
+        /// Prints into `Stdout`
+        /// </summary>
+        /// <use>
+        /// print(elements...)
+        /// </use>
+        /// <accepted>
+        /// ANY
+        /// </accepted>
+        /// <name>
+        ///  print
+        /// </name>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
+        private static Object Print(Object[] parameters)
+        {
+            for (int i = 0; i < parameters.Length; i++)
+            {
+                Debug.Log(parameters[i]);
             }
             return Null.NULL;
         }

@@ -22,7 +22,11 @@ public class ParserTesting : MonoBehaviour
             for i=0, #arr do -- #arr gets length of the array, which is 4
                 arr[i] = arr[i] * 2
             end
+            table = { TABLE=true, arr={1,2,3} }
+            table[""uwu""] = 1
+            append(table.arr, 4)
             append(arr, 10)
+            print(table)
             function fact (n)
               if n == 0 then
                 return (1 / 2) * (3 * 5 + 1) / 2 + 3
@@ -41,7 +45,7 @@ public class ParserTesting : MonoBehaviour
             j, x, z, arr[0] = f(0), 1, 0 -- Example of destructuring. 0, 1, 1
             for i=1,10 do j = j + i end 
             something = true
-            return j + s + x + z + not something + a + arr[-1] + arr[0]
+            return j + s + x + z + not something + a + arr[-1] + arr[0] + table[""uwu""]
         ";
         
         
@@ -51,7 +55,7 @@ public class ParserTesting : MonoBehaviour
         {
             Block statements = parser.Read();
             Object node = ev.EvaluateNode(statements);
-            Debug.Log($"evaluator returned a {node.GetType()} of val {node}");
+            Debug.Log($"evaluator returned a {node.Type()} of val {node}");
             if (node.IsError())
             {
                 Error err = node as Error;

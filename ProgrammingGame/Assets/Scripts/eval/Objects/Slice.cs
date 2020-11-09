@@ -18,7 +18,7 @@ public class Slice : Object
     public int End => end;
     public int Start => start;
 
-    public override string GetType()
+    public override string Type()
     {
         return Name;
     }

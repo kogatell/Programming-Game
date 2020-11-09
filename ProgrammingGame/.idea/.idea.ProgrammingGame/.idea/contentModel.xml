@@ -24,6 +24,7 @@
               <e p="Slice.cs" t="Include" />
               <e p="StdLibFunc.cs" t="Include" />
               <e p="String.cs" t="Include" />
+              <e p="Table.cs" t="Include" />
             </e>
             <e p="StdLib" t="Include">
               <e p="Stdlib.cs" t="Include" />

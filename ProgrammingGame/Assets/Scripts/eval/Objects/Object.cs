@@ -5,8 +5,7 @@ using UnityEngine;
 
 public abstract class Object
 {
-    public abstract string GetType();
-
+    public abstract string Type();
     
     /// <summary>
     /// Returns if this object is an error
@@ -14,18 +13,18 @@ public abstract class Object
     /// <returns></returns>
     public bool IsError()
     {
-        return GetType() == Error.Name;
+        return Type() == Error.Name;
     }
 
     public Object ToNumber()
     {
         if (IsError()) return this;
         if (IsNumeric()) return this;
-        if (GetType() == Boolean.Name)
+        if (Type() == Boolean.Name)
         {
             return ToBool() == Boolean.True ? new Number(1) : new Number(0);
         }
-        if (GetType() != String.Name) return new Error($"can't convert object of type {GetType()} to numeric");
+        if (Type() != String.Name) return new Error($"can't convert object of type {Type()} to numeric");
         try
         {
             return new Number(int.Parse((this as String).Value));
@@ -38,12 +37,12 @@ public abstract class Object
 
     public Boolean ToBool()
     {
-        if (GetType() == Null.Name)
+        if (Type() == Null.Name)
         {
             return Boolean.False;
         }
 
-        if (GetType() == Boolean.Name)
+        if (Type() == Boolean.Name)
         {
             return this as Boolean;
         }
@@ -53,6 +52,6 @@ public abstract class Object
 
     public bool IsNumeric()
     {
-        return GetType() == Number.Name;
+        return Type() == Number.Name;
     }
 } 

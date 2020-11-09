@@ -15,7 +15,7 @@ public class ReturnHolder : Object
     
     public const string Name = "ReturnHolder";
     
-    public override string GetType()
+    public override string Type()
     {
         return Name;
     }

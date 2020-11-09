@@ -8,7 +8,7 @@ public class StdLibFunc : Object, Caller
 {
     public const string Name = "StdLibFunc";
     
-    public override string GetType()
+    public override string Type()
     {
         return Name;
     }

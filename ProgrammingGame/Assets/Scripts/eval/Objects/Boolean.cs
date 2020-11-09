@@ -21,7 +21,7 @@ public class Boolean : Object
         return b ? True : False;
     }
     
-    public override string GetType()
+    public override string Type()
     {
         return "Boolean";
     }

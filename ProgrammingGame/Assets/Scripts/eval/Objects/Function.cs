@@ -33,8 +33,13 @@ public class Function : Object, Caller
         return localEvaluator.EvaluateNode(definition.Block);
     }
 
-    public override string GetType()
+    public override string Type()
     {
         return "Function";
+    }
+
+    public override string ToString()
+    {
+        return definition.ToString();
     }
 }

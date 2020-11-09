@@ -6,7 +6,7 @@ public class Null : Object
 {
     public const string Name = "Null";
     public static Null NULL = new Null();
-    public override string GetType()
+    public override string Type()
     {
         return "Null";
     }

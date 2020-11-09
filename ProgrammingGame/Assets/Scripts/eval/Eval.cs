@@ -61,11 +61,17 @@ public class Eval
                     objects[i] = value;
                     keys[i] = key;
                     if (!(key is Number))
+                    {
                         isArray = false;
+                    }
                 }
                 if (isArray) return new ArrayObject(objects.ToList());
-                // TODO: HashMap
-                break;
+                Table tableObject = new Table();
+                for (int i = 0; i < table.Entries.Count; ++i)
+                {
+                    tableObject.Set(keys[i], objects[i]);
+                }
+                return tableObject;
             }
 
             case Expressions.TableAccess:
@@ -73,7 +79,8 @@ public class Eval
                 TableAccess ta = expr as TableAccess;
                 Object idx = EvalExpr(ta.Index);
                 Object variable = EvalExpr(ta.Table);
-                
+                if (idx.IsError()) return idx;
+                if (variable.IsError()) return variable;
                 if (variable is String str)
                 {
                     if (idx is Slice sliceStr)
@@ -90,10 +97,14 @@ public class Eval
                         return new Error($"string access out of bounds: length {str.Value.Length} idx: {i}");
                     return new String(str.Value[i].ToString());
                 }
-                
-                if (!(variable is ArrayObject))
+
+                if (variable is ArrayObject arr && arr.array.Count == 0)
                 {
-                    break;
+                    return Null.NULL;
+                }
+                if (variable is Table table)
+                {
+                    return table.Get(idx);
                 }
                 if (idx is Slice slice)
                 {
@@ -101,6 +112,7 @@ public class Eval
                 }
                 Object idxN = idx.ToNumber();
                 if (idxN.IsError()) return idxN;
+                if (variable == Null.NULL || variable.IsError()) return variable;
                 return (variable as ArrayObject).Get((int) (idxN as Number).value);
             }
 
@@ -126,7 +138,6 @@ public class Eval
             case Expressions.Variable:
             {
                 Variable variable = expr as Variable;
-                //Debug.Log(variable);
                 return context.Get(variable.Name);
             }
 
@@ -183,7 +194,7 @@ public class Eval
                     IExpression expr = assignment.Values[i];
                     Object result = EvalExpr(expr);
                     if (result.IsError()) return result;
-                    if (result.GetType() != ReturnHolder.Name)
+                    if (result.Type() != ReturnHolder.Name)
                     {
                         if (j >= assignment.Targets.Count) return new Error("too few variables in destructuring");
                         IAssignable assignable = assignment.Targets[j];
@@ -244,12 +255,12 @@ public class Eval
                 for (int i = 0; i < fc.Arguments.Count; ++i)
                 {
                     parameters[i] = EvalExpr(fc.Arguments[i]);
-                    if (parameters[i].GetType() == Error.Name)
+                    if (parameters[i].Type() == Error.Name)
                     {
                         return parameters[i];
                     }
                 }
-                if (function.GetType() != Function.Name && function.GetType() != StdLibFunc.Name)
+                if (function.Type() != Function.Name && function.Type() != StdLibFunc.Name)
                 {
                     return new Error($"function call is not a function");
                 }
@@ -288,6 +299,7 @@ public class Eval
     private Object EvalAssignable(IAssignable assignable, Object target)
     {
         if (assignable == null) return Null.NULL;
+        if (target.IsError()) return target;
         
         switch (assignable.GetType().Name)
         {
@@ -302,11 +314,12 @@ public class Eval
             {
                 TableAccess acc = assignable as TableAccess;
                 Object idx = EvalExpr(acc.Index);
+                if (idx.IsError()) return idx;
                 Object value = EvalExpr(acc.Table);
                 if (value == null) return new Error("unexpected error accessing table");
-                if (value is ArrayObject)
+                if (value is ArrayObject arr && arr.array.Count > 0)
                 {
-                    if (idx is Slice slice)
+                    if (idx is Slice)
                     {
                         return new Error("you can't use a slice for assignable table access");
                     }
@@ -318,6 +331,14 @@ public class Eval
 
                     Object possibleErr = (value as ArrayObject).Set((int) (idx as Number).value, target);
                     if (possibleErr.IsError()) return possibleErr;
+                    return Null.NULL;
+                }
+                // Convert to hashTable
+
+                if (value is Table table)
+                {
+                    
+                    table.Set(idx, target);
                     return Null.NULL;
                 }
 
@@ -343,7 +364,7 @@ public class Eval
             case UnaryOp.OpType.Negate:
             {
                 if (!right.IsNumeric()) 
-                    return new Error($"expected numeric value on unary op, got={right.GetType()}");
+                    return new Error($"expected numeric value on unary op, got={right.Type()}");
                 (right as Number).value = -(right as Number).value;
                 return right;
             }
@@ -362,7 +383,7 @@ public class Eval
                     case ArrayObject arr:
                         return new Number(arr.array.Count);
                     default:
-                        return new Error($"can't get length of type {right.GetType()}");
+                        return new Error($"can't get length of type {right.Type()}");
                 }
             }
 
@@ -423,7 +444,7 @@ public class Eval
         {
             left = left.ToNumber();
             right = right.ToNumber();
-            if (left.IsNumeric() && left.IsNumeric())
+            if (left.IsNumeric() && right.IsNumeric())
             {
                 return EvaluateNumberOp(left as Number, right as Number, type);
             }
@@ -447,11 +468,11 @@ public class Eval
                     return s.Slice(slice.Start, slice.End);
             }
 
-            return new Error($"can't slice left variable of type {left.GetType()}");
+            return new Error($"can't slice left variable of type {left.Type()}");
         }
-        if (left.GetType() != right.GetType())
+        if (left.Type() != right.Type())
         {
-            return new Error($"can't concatenate different types {left.GetType()} and {right.GetType()}");
+            return new Error($"can't concatenate different types {left.Type()} and {right.Type()}");
         }
 
         switch (left)
@@ -463,7 +484,7 @@ public class Eval
             case ArrayObject arr:
                 return arr.Concatenate(right as ArrayObject);
             default:
-                return new Error($"can't operate on {left.GetType()}s");
+                return new Error($"can't operate on {left.Type()}s");
         }
     }
 
@@ -505,11 +526,11 @@ public class Eval
     private Object EvaluateNumericForLoop(Object start, Object end, Object step, Block block, string name)
     {
         if (!start.IsNumeric())
-            return new Error($"expected on start expr a numeric value, instead got a {start.GetType()}");
+            return new Error($"expected on start expr a numeric value, instead got a {start.Type()}");
         if (!end.IsNumeric()) 
-            return new Error($"expected on end expr a numeric value, instead got a {end.GetType()}");
+            return new Error($"expected on end expr a numeric value, instead got a {end.Type()}");
         if (!step.IsNumeric()) 
-            return new Error($"expected on end step a numeric value, instead got a {step.GetType()}");
+            return new Error($"expected on end step a numeric value, instead got a {step.Type()}");
         Number startNumber = start as Number;
         Number endNumber = end as Number;
         Number stepNumber = step as Number;

@@ -22,7 +22,7 @@ public class ArrayObject : Object
    public const string Name = "Array";
    public List<Object> array = new List<Object>();
 
-   public override string GetType()
+   public override string Type()
    {
       return Name;
    }
@@ -124,5 +124,17 @@ public class ArrayObject : Object
       });
       return new ArrayObject(objs);
    }
-   
+
+
+   public override string ToString()
+   {
+      string print = "{";
+      for (int i = 0; i < array.Count; ++i)
+      {
+         string space = i >= 1 ? ", " : "";
+         print += $"{space}{array[i]}";
+      }
+      print += "}";
+      return print;
+   }
 }
