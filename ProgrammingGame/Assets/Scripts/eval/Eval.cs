@@ -3,6 +3,7 @@
 
 using System;
 using System.Linq;
+using interactor;
 using Relua.AST;
 using UnityEngine;
 using static Stdlib.Stdlib;
@@ -12,6 +13,18 @@ using static Stdlib.Stdlib;
 /// </summary>
 public class Eval
 {
+    private int currentLine = 1;
+
+    private int CurrentLine
+    {
+        get => currentLine;
+        set
+        {
+            currentLine = value;
+            Interactor.Do(ActionType.NewLineOfCode, new[] {new Number(currentLine)}).WaitInteraction();
+        }
+    }
+    
     private Context context;
     
     public Eval(Context ctx = null)
@@ -26,7 +39,12 @@ public class Eval
         {
             return Null.NULL;
         }
-        
+
+        // This happens when the node refers to a identifier previously parsed.
+        if (expr is Node node && currentLine < node.Line && !(expr is BoolLiteral) && !(expr is Variable))
+        {
+            CurrentLine = node.line;
+        }
         string typeName = expr.GetType().Name;
         
         // When you wanna see the process of evaluation 
@@ -166,11 +184,17 @@ public class Eval
         {
             return null;
         }
-        
         string typeName = statement.GetType().Name;
         // When you wanna see the process of evaluation 
         // Debug.Log(typeName);
         //
+        if (statement is Node node && currentLine < node.Line)
+        {
+            // Debug.Log($"line: {node.line} in {node}");
+            // Wh
+            CurrentLine = node.line;
+        }
+
         switch (typeName)
         {
             case Statements.NumericFor:
@@ -401,6 +425,12 @@ public class Eval
         if (node == null)
         {
             return Null.NULL;
+        }
+        if (currentLine < node.Line)
+        {
+            // Debug.Log($"line: {node.line} in {node}");
+            // Wh
+            CurrentLine = node.line;
         }
         string typeName = node.GetType().Name;
         // When you wanna see the process of evaluation 

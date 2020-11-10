@@ -8,9 +8,16 @@
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
           <e p="CameraScript.cs" t="Include" />
+          <e p="code_executor" t="Include">
+            <e p="CodeExecutor.cs" t="Include" />
+          </e>
           <e p="eval" t="Include">
             <e p="Context.cs" t="Include" />
             <e p="Eval.cs" t="Include" />
+            <e p="Interactions" t="Include">
+              <e p="Actions.cs" t="Include" />
+              <e p="Interactor.cs" t="Include" />
+            </e>
             <e p="Nodes.cs" t="Include" />
             <e p="Objects" t="Include">
               <e p="ArrayObject.cs" t="Include" />

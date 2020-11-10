@@ -15,6 +15,14 @@ namespace Relua.AST {
             return ToString(false);
         }
 
+        
+        public int line = 1;
+
+        /// <summary>
+        /// The line where this node has been parsed
+        /// </summary>
+        public int Line => line;
+
         public virtual string ToString(bool one_line) {
             var s = new StringBuilder();
             var sw = new StringWriter(s);

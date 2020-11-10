@@ -1,6 +1,7 @@
 ﻿
 
 using System.Collections.Generic;
+using interactor;
 using UnityEngine;
 
 namespace Stdlib
@@ -10,10 +11,11 @@ namespace Stdlib
 
         public static Context GetStandardLibrary()
         {
-            Context dict = new Context();
-            dict.Set("append", new StdLibFunc(Append));
-            dict.Set("print", new StdLibFunc(Print)); 
-            return dict;
+            Context ctx = new Context();
+            ctx.Set("append", new StdLibFunc(Append));
+            ctx.Set("print", new StdLibFunc(Print)); 
+            ctx.Set("move", new StdLibFunc(Move)); 
+            return ctx;
         }
 
 
@@ -66,6 +68,27 @@ namespace Stdlib
                 Debug.Log(parameters[i]);
             }
             return Null.NULL;
+        }
+
+        /// <summary>
+        /// Test action
+        /// </summary>
+        /// <use>
+        /// move({1, 2})
+        /// </use>
+        /// <accepted>
+        /// Array of 2 elements
+        /// </accepted>
+        /// <name>
+        ///  move
+        /// </name>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
+        private static Object Move(Object[] parameters)
+        {
+            Interactor.InteractorTask<Object> interactor = Interactor.Do(ActionType.Move, parameters);
+            Object response = interactor.WaitInteraction();
+            return response;
         }
     }
 
