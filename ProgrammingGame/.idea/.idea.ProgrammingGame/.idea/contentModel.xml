@@ -11,6 +11,16 @@
           <e p="code_executor" t="Include">
             <e p="CodeExecutor.cs" t="Include" />
           </e>
+          <e p="docs" t="Include">
+            <e p="Any.cs" t="Include" />
+            <e p="Doc.cs" t="Include" />
+            <e p="DocArray.cs" t="Include" />
+            <e p="DocKeyPair.cs" t="Include" />
+            <e p="DocMethod.cs" t="Include" />
+            <e p="DocObject.cs" t="Include" />
+            <e p="DocPrimitive.cs" t="Include" />
+            <e p="Type.cs" t="Include" />
+          </e>
           <e p="eval" t="Include">
             <e p="Context.cs" t="Include" />
             <e p="Eval.cs" t="Include" />
@@ -34,7 +44,9 @@
               <e p="Table.cs" t="Include" />
             </e>
             <e p="StdLib" t="Include">
+              <e p="Lib.cs" t="Include" />
               <e p="Stdlib.cs" t="Include" />
+              <e p="TestLib.cs" t="Include" />
             </e>
           </e>
           <e p="parser" t="Include">
@@ -60,6 +72,10 @@
             <e p="ParserTesting.cs" t="Include" />
           </e>
           <e p="PlayerScript.cs" t="Include" />
+          <e p="problem" t="Include">
+            <e p="Problem.cs" t="Include" />
+            <e p="ProblemManager.cs" t="Include" />
+          </e>
         </e>
       </e>
       <e p="obj" t="ExcludeRecursive" />

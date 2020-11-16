@@ -28,6 +28,7 @@ public class ParserTesting : MonoBehaviour
              -- move is a standard library function that we will show later how it's created
             returnValue = move(moveTo)
             print(returnValue) -- ?????
+            print(test(1))
             return true
         ";
         CodeExecutor codeExecutor = new CodeExecutor(node =>

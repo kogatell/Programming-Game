@@ -11,10 +11,16 @@ namespace Stdlib
 
         public static Context GetStandardLibrary()
         {
+            Lib[] libs = ProblemManager.Instance.CurrentProblem.Libs;
             Context ctx = new Context();
             ctx.Set("append", new StdLibFunc(Append));
             ctx.Set("print", new StdLibFunc(Print)); 
-            ctx.Set("move", new StdLibFunc(Move)); 
+            ctx.Set("move", new StdLibFunc(Move));
+            if (libs == null) return ctx;
+            for (int i = 0; i < libs.Length; i++)
+            {
+                ctx = libs[i].InjectLibrary(ctx);
+            }
             return ctx;
         }
 
