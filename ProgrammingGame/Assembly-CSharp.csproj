@@ -60,15 +60,35 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\CameraScript.cs" />
      <Compile Include="Assets\Scripts\PlayerScript.cs" />
+     <Compile Include="Assets\Scripts\code_executor\CodeExecutor.cs" />
+     <Compile Include="Assets\Scripts\docs\Any.cs" />
+     <Compile Include="Assets\Scripts\docs\Doc.cs" />
+     <Compile Include="Assets\Scripts\docs\DocArray.cs" />
+     <Compile Include="Assets\Scripts\docs\DocKeyPair.cs" />
+     <Compile Include="Assets\Scripts\docs\DocMethod.cs" />
+     <Compile Include="Assets\Scripts\docs\DocObject.cs" />
+     <Compile Include="Assets\Scripts\docs\DocPrimitive.cs" />
+     <Compile Include="Assets\Scripts\docs\Type.cs" />
      <Compile Include="Assets\Scripts\eval\Context.cs" />
      <Compile Include="Assets\Scripts\eval\Eval.cs" />
+     <Compile Include="Assets\Scripts\eval\Interactions\Actions.cs" />
+     <Compile Include="Assets\Scripts\eval\Interactions\Interactor.cs" />
      <Compile Include="Assets\Scripts\eval\Nodes.cs" />
+     <Compile Include="Assets\Scripts\eval\Objects\ArrayObject.cs" />
      <Compile Include="Assets\Scripts\eval\Objects\Boolean.cs" />
      <Compile Include="Assets\Scripts\eval\Objects\Error.cs" />
      <Compile Include="Assets\Scripts\eval\Objects\Function.cs" />
      <Compile Include="Assets\Scripts\eval\Objects\Null.cs" />
      <Compile Include="Assets\Scripts\eval\Objects\Number.cs" />
      <Compile Include="Assets\Scripts\eval\Objects\Object.cs" />
+     <Compile Include="Assets\Scripts\eval\Objects\ReturnHolder.cs" />
+     <Compile Include="Assets\Scripts\eval\Objects\Slice.cs" />
+     <Compile Include="Assets\Scripts\eval\Objects\StdLibFunc.cs" />
+     <Compile Include="Assets\Scripts\eval\Objects\String.cs" />
+     <Compile Include="Assets\Scripts\eval\Objects\Table.cs" />
+     <Compile Include="Assets\Scripts\eval\StdLib\Lib.cs" />
+     <Compile Include="Assets\Scripts\eval\StdLib\Stdlib.cs" />
+     <Compile Include="Assets\Scripts\eval\StdLib\TestLib.cs" />
      <Compile Include="Assets\Scripts\parser\Relua\Properties\AssemblyInfo.cs" />
      <Compile Include="Assets\Scripts\parser\Relua\src\AST.cs" />
      <Compile Include="Assets\Scripts\parser\Relua\src\Exception.cs" />
@@ -81,6 +101,20 @@
      <Compile Include="Assets\Scripts\parser\Relua\src\Tokenizer.cs" />
      <Compile Include="Assets\Scripts\parser\Relua\src\Visitor.cs" />
      <Compile Include="Assets\Scripts\parser_testing\ParserTesting.cs" />
+<<<<<<< HEAD
+=======
+     <Compile Include="Assets\Scripts\problem\Problem.cs" />
+     <Compile Include="Assets\Scripts\problem\ProblemManager.cs" />
+ <Reference Include="Unity.Timeline.Editor">
+ <HintPath>/Users/gabivlj/programming/C#/Programming-Game/ProgrammingGame/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.VSCode.Editor">
+ <HintPath>/Users/gabivlj/programming/C#/Programming-Game/ProgrammingGame/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.TextMeshPro.Editor">
+ <HintPath>/Users/gabivlj/programming/C#/Programming-Game/ProgrammingGame/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ </Reference>
+>>>>>>> 2370cb6088d9b383ca621c32297d6ce593be527b
  <Reference Include="UnityEngine.UI">
  <HintPath>/Users/dgraciam/personal/projects/unity/Programming-Game/ProgrammingGame/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>

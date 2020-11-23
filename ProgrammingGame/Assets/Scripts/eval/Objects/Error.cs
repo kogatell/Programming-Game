@@ -14,9 +14,13 @@ public class Error : Object
         message = msg;
     }
 
-    public override string GetType()
+    public override string Type()
     {
         return "Error";
     }
 
+    public override string ToString()
+    {
+        return message;
+    }
 }

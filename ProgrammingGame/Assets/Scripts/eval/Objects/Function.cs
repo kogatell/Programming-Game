@@ -3,7 +3,12 @@ using System.Collections.Generic;
 using Relua.AST;
 using UnityEngine;
 
-public class Function : Object
+public interface Caller
+{
+    Object Call(Object[] parameters);
+}
+
+public class Function : Object, Caller
 {
     public const string Name = "Function";
     
@@ -28,8 +33,13 @@ public class Function : Object
         return localEvaluator.EvaluateNode(definition.Block);
     }
 
-    public override string GetType()
+    public override string Type()
     {
         return "Function";
+    }
+
+    public override string ToString()
+    {
+        return definition.ToString();
     }
 }

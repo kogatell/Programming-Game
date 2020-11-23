@@ -395,6 +395,7 @@ namespace Relua {
                 Move();
                 expr = complex;
                 if (expr is FunctionCall) {
+                    
                     ((FunctionCall)expr).ForceTruncateReturnValues = true;
                 }
             } else expr = ReadPrimaryExpression();
@@ -500,8 +501,21 @@ namespace Relua {
         /// </summary>
         /// <returns>The expression.</returns>
         public IExpression ReadExpression() {
+            int line = CurToken.Region.Tokenizer.CurrentLine;
             var expr = ReadSecondaryExpression();
-            return ReadComplexExpression(expr, 0, false);
+            if (expr is Node node)
+            {
+                node.line = line;
+            }
+            if (CurToken.Region.Tokenizer != null)
+                line = CurToken.Region.Tokenizer.CurrentLine;
+            IExpression complexExpression = ReadComplexExpression(expr, 0, false);
+            if (complexExpression is Node nodeExprComplex)
+            {
+                nodeExprComplex.line = line;
+            }
+
+            return complexExpression;
         }
 
         public Break ReadBreak() {
@@ -887,8 +901,11 @@ namespace Relua {
         /// Reads a single statement.
         /// </summary>
         /// <returns>The statement.</returns>
-        public IStatement ReadStatement() {
+        public IStatement ReadStatement()
+        {
+            int line = CurToken.Region.Tokenizer.CurrentLine;
             var stat = ReadPrimaryStatement();
+            if (stat is Node node) node.line = line;
             SkipSemicolons();
             return stat;
         }
