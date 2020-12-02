@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: efde6694f6aed4955bb18b0cf094bc25, type: 3}
-  m_Name: Number
+  m_Name: NumberDocs
   m_EditorClassIdentifier: 
   Name: 
   Type: 0

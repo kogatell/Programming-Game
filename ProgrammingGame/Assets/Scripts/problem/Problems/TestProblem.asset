@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a9ef9212070994514afc94fab5ad8ff7, type: 3}
-  m_Name: Problem
+  m_Name: TestProblem
   m_EditorClassIdentifier: 
   Name: TestProblem
   Libs:

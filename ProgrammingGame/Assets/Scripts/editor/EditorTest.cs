@@ -1,18 +1,26 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EditorTest : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    #region Attributes
+
+    public InputField inputField;
+
+    #endregion
+
+    #region Monobehavior
+
+    public void Start()
     {
-        
+        if (inputField.lineType == InputField.LineType.SingleLine)
+        {
+            inputField.lineType = InputField.LineType.MultiLineNewline;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    #endregion
 }

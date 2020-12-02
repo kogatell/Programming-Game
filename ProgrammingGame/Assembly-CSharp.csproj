@@ -101,20 +101,8 @@
      <Compile Include="Assets\Scripts\parser\Relua\src\Tokenizer.cs" />
      <Compile Include="Assets\Scripts\parser\Relua\src\Visitor.cs" />
      <Compile Include="Assets\Scripts\parser_testing\ParserTesting.cs" />
-<<<<<<< HEAD
-=======
      <Compile Include="Assets\Scripts\problem\Problem.cs" />
      <Compile Include="Assets\Scripts\problem\ProblemManager.cs" />
- <Reference Include="Unity.Timeline.Editor">
- <HintPath>/Users/gabivlj/programming/C#/Programming-Game/ProgrammingGame/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.VSCode.Editor">
- <HintPath>/Users/gabivlj/programming/C#/Programming-Game/ProgrammingGame/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>/Users/gabivlj/programming/C#/Programming-Game/ProgrammingGame/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
- </Reference>
->>>>>>> 2370cb6088d9b383ca621c32297d6ce593be527b
  <Reference Include="UnityEngine.UI">
  <HintPath>/Users/dgraciam/personal/projects/unity/Programming-Game/ProgrammingGame/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>

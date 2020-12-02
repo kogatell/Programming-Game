@@ -9,10 +9,6 @@
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
           <e p="CameraScript.cs" t="Include" />
-<<<<<<< HEAD
-          <e p="editor" t="Include">
-            <e p="EditorTest.cs" t="Include" />
-=======
           <e p="code_executor" t="Include">
             <e p="CodeExecutor.cs" t="Include" />
           </e>
@@ -25,7 +21,9 @@
             <e p="DocObject.cs" t="Include" />
             <e p="DocPrimitive.cs" t="Include" />
             <e p="Type.cs" t="Include" />
->>>>>>> 2370cb6088d9b383ca621c32297d6ce593be527b
+          </e>
+          <e p="editor" t="Include">
+            <e p="EditorTest.cs" t="Include" />
           </e>
           <e p="eval" t="Include">
             <e p="Context.cs" t="Include" />
