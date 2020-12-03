@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="$USER_HOME$/Library/Caches/Rider2019.1/extResources" t="IncludeRecursive" />
-    <e p="$USER_HOME$/Library/Caches/Rider2019.1/resharper-host/local/Transient/ReSharperHost/v191/SolutionCaches/_ProgrammingGame.103561503.00" t="ExcludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/JetBrains/Rider2020.2/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/JetBrains/Rider2020.2/resharper-host/local/Transient/Rider/v202/SolutionCaches/_ProgrammingGame.-1107279795.00" t="ExcludeRecursive" />
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="JsonDotNet" t="Include">
@@ -23,6 +24,9 @@
             <e p="DocObject.cs" t="Include" />
             <e p="DocPrimitive.cs" t="Include" />
             <e p="Type.cs" t="Include" />
+          </e>
+          <e p="editor" t="Include">
+            <e p="EditorTest.cs" t="Include" />
           </e>
           <e p="eval" t="Include">
             <e p="Context.cs" t="Include" />
