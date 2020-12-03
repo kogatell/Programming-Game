@@ -3,26 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1eeee2fa-f188-4869-a573-0ade4b9dbce6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProgrammingGame/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProgrammingGame/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProgrammingGame/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProgrammingGame/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProgrammingGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProgrammingGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProgrammingGame/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProgrammingGame/riderModule.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
-<<<<<<< HEAD
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/BuiltinAssemblies.stamp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.TextMeshPro.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.Timeline.Editor.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.Timeline.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.VSCode.Editor.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/UnityEditor.TestRunner.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/UnityEditor.UI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/UnityEditor.UI.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/UnityEngine.TestRunner.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/UnityEngine.UI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/UnityEngine.UI.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ShaderCache/EditorEncounteredVariants" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ShaderCache/EditorEncounteredVariants" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Style.catalog" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Style.catalog" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProgrammingGame.sln" beforeDir="false" afterPath="$PROJECT_DIR$/ProgrammingGame.sln" afterDir="false" />
-=======
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gabi Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gabi Scene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/code_executor/CodeExecutor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/code_executor/CodeExecutor.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/docs/DocObjects/Any.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/docs/DocObjects/Any.asset" afterDir="false" />
@@ -53,6 +35,7 @@
       <change beforePath="$PROJECT_DIR$/Library/ProtocolInstance.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ProtocolInstance.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/SceneVisibilityState.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Library/SceneVisibilityState.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/BuiltinAssemblies.stamp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.Rider.Editor.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.Rider.Editor.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll" afterDir="false" />
@@ -206,54 +189,52 @@
       <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-fb39f1a5744524b02b6cf064250ef3a6" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-fcac3d8a9fc5847c98a22bea15371d08" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Temp/__Backupscenes/0.backup" beforeDir="false" afterPath="$PROJECT_DIR$/Temp/__Backupscenes/0.backup" afterDir="false" />
->>>>>>> 2370cb6088d9b383ca621c32297d6ce593be527b
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-<<<<<<< HEAD
-=======
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Runner.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="640">
-              <caret line="32" column="33" lean-forward="true" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
+            <state relative-caret-position="-414">
+              <caret line="65" column="4" selection-start-line="65" selection-start-column="4" selection-end-line="65" selection-end-column="4" />
               <folding>
-                <marker date="1606955692952" expanded="true" signature="6:110" ph="..." />
-                <marker date="1606955692952" expanded="true" signature="113:321" ph="/// Subscription Interface ... " />
-                <marker date="1606955692952" expanded="true" signature="356:519" ph="{...}" />
-                <marker date="1606955692952" expanded="true" signature="521:597" ph="/// Runs code, and checks that everything is OK ... " />
-                <marker date="1606955692952" expanded="true" signature="633:5234" ph="{...}" />
-                <marker date="1606955692952" expanded="true" signature="881:1001" ph="/// Last Returned Object on the tests. This will contain an error if there is some. ... " />
-                <marker date="1606955692952" expanded="true" signature="1094:1180" ph="{...}" />
-                <marker date="1606955692952" expanded="true" signature="1367:1432" ph="{...}" />
-                <marker date="1606955692952" expanded="true" signature="1490:2169" ph="{...}" />
-                <marker date="1606955692952" expanded="true" signature="1619:1671" ph="{...}" />
-                <marker date="1606955692952" expanded="true" signature="1714:1810" ph="{...}" />
-                <marker date="1606955692952" expanded="true" signature="1852:1924" ph="{...}" />
-                <marker date="1606955692952" expanded="true" signature="2009:2163" ph="{...}" />
-                <marker date="1606955692952" expanded="true" signature="2180:2525" ph="/// Executes code related to the  current  problem in the ProblemManager ... " />
-                <marker date="1606955692952" expanded="true" signature="2605:3614" ph="{...}" />
-                <marker date="1606955692952" expanded="true" signature="2707:3448" ph="{...}" />
-                <marker date="1606955692952" expanded="true" signature="2739:2877" ph="{...}" />
-                <marker date="1606955692952" expanded="true" signature="2928:3115" ph="{...}" />
-                <marker date="1606955692952" expanded="true" signature="3153:3399" ph="{...}" />
-                <marker date="1606955692952" expanded="true" signature="3643:4595" ph="{...}" />
-                <marker date="1606955692952" expanded="true" signature="3713:3794" ph="{...}" />
-                <marker date="1606955692952" expanded="true" signature="3978:4587" ph="{...}" />
-                <marker date="1606955692952" expanded="true" signature="4014:4174" ph="{...}" />
-                <marker date="1606955692952" expanded="true" signature="4215:4376" ph="{...}" />
-                <marker date="1606955692952" expanded="true" signature="4643:4770" ph="{...}" />
-                <marker date="1606955692952" expanded="true" signature="4701:4764" ph="{...}" />
-                <marker date="1606955692952" expanded="true" signature="4814:4946" ph="{...}" />
-                <marker date="1606955692952" expanded="true" signature="4872:4940" ph="{...}" />
-                <marker date="1606955692952" expanded="true" signature="4998:5129" ph="{...}" />
-                <marker date="1606955692952" expanded="true" signature="5056:5123" ph="{...}" />
-                <marker date="1606955692952" expanded="true" signature="5190:5232" ph="{...}" />
+                <marker date="1606956584275" expanded="true" signature="6:110" ph="..." />
+                <marker date="1606956584275" expanded="true" signature="113:436" ph="/// Subscription Interface ... " />
+                <marker date="1606956584275" expanded="true" signature="471:634" ph="{...}" />
+                <marker date="1606956584275" expanded="true" signature="636:712" ph="/// Runs code, and checks that everything is OK ... " />
+                <marker date="1606956584275" expanded="true" signature="748:5314" ph="{...}" />
+                <marker date="1606956584275" expanded="true" signature="996:1116" ph="/// Last Returned Object on the tests. This will contain an error if there is some. ... " />
+                <marker date="1606956584275" expanded="true" signature="1209:1295" ph="{...}" />
+                <marker date="1606956584275" expanded="true" signature="1482:1547" ph="{...}" />
+                <marker date="1606956584275" expanded="true" signature="1570:2249" ph="{...}" />
+                <marker date="1606956584275" expanded="true" signature="1699:1751" ph="{...}" />
+                <marker date="1606956584275" expanded="true" signature="1794:1890" ph="{...}" />
+                <marker date="1606956584275" expanded="true" signature="1932:2004" ph="{...}" />
+                <marker date="1606956584275" expanded="true" signature="2089:2243" ph="{...}" />
+                <marker date="1606956584275" expanded="true" signature="2260:2605" ph="/// Executes code related to the  current  problem in the ProblemManager ... " />
+                <marker date="1606956584275" expanded="true" signature="2685:3694" ph="{...}" />
+                <marker date="1606956584275" expanded="true" signature="2787:3528" ph="{...}" />
+                <marker date="1606956584275" expanded="true" signature="2819:2957" ph="{...}" />
+                <marker date="1606956584275" expanded="true" signature="3008:3195" ph="{...}" />
+                <marker date="1606956584275" expanded="true" signature="3233:3479" ph="{...}" />
+                <marker date="1606956584275" expanded="true" signature="3723:4675" ph="{...}" />
+                <marker date="1606956584275" expanded="true" signature="3793:3874" ph="{...}" />
+                <marker date="1606956584275" expanded="true" signature="4058:4667" ph="{...}" />
+                <marker date="1606956584275" expanded="true" signature="4094:4254" ph="{...}" />
+                <marker date="1606956584275" expanded="true" signature="4295:4456" ph="{...}" />
+                <marker date="1606956584275" expanded="true" signature="4723:4850" ph="{...}" />
+                <marker date="1606956584275" expanded="true" signature="4781:4844" ph="{...}" />
+                <marker date="1606956584275" expanded="true" signature="4894:5026" ph="{...}" />
+                <marker date="1606956584275" expanded="true" signature="4952:5020" ph="{...}" />
+                <marker date="1606956584275" expanded="true" signature="5078:5209" ph="{...}" />
+                <marker date="1606956584275" expanded="true" signature="5136:5203" ph="{...}" />
+                <marker date="1606956584275" expanded="true" signature="5270:5312" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -274,14 +255,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/problem/Problem.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
+            <state relative-caret-position="180">
+              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
               <folding>
-                <marker date="1606950281178" expanded="false" signature="6:78" ph="..." />
-                <marker date="1606950281178" expanded="true" signature="207:287" ph="{...}" />
+                <marker date="1606956496406" expanded="false" signature="6:111" ph="..." />
+                <marker date="1606956496406" expanded="true" signature="240:352" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -305,7 +286,6 @@
       </file>
     </leaf>
   </component>
->>>>>>> 2370cb6088d9b383ca621c32297d6ce593be527b
   <component name="FindInProjectRecents">
     <findStrings>
       <find>Statement</find>
@@ -343,14 +323,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/parser_testing/ParserTesting.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/eval/Context.cs" root0="FORCE_HIGHLIGHTING" />
-=======
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/eval/StdLib/Stdlib.cs" root0="FORCE_HIGHLIGHTING" />
->>>>>>> f52b5ba68e1e9011768cae1ef0792ba85aaebb2b
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/docs/DocKeyPair.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/docs/Doc.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/problem/Problem.cs" root0="FORCE_HIGHLIGHTING" />
@@ -396,32 +368,10 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/docs/DocMethod.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/eval/Objects/ReturnHolder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/eval/Objects/Number.cs" root0="FORCE_HIGHLIGHTING" />
->>>>>>> 2370cb6088d9b383ca621c32297d6ce593be527b
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/eval/Nodes.cs" root0="FORCE_HIGHLIGHTING" />
-<<<<<<< HEAD
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/test/TestRunnerButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/99258562-0D64-4271-98DD-F3A0E1467733/39/57def902/Hashtable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/problem/Problems/object_kinds/NumberObjectScr.cs" root0="FORCE_HIGHLIGHTING" />
-=======
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/eval/Eval.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/eval/Objects/Boolean.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/eval/Objects/Function.cs" root0="FORCE_HIGHLIGHTING" />
-<<<<<<< HEAD
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/parser/Relua/src/Parser.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/eval/Objects/Null.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/eval/Objects/Object.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ide.rider@1.1.4/Rider/Editor/UnitTesting/CallbackInitializer.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/parser/Relua/src/AST.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/eval/Objects/Number.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerScript.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/eval/Objects/Error.cs" root0="FORCE_HIGHLIGHTING" />
-=======
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/eval/StdLib/TestLib.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/99258562-0D64-4271-98DD-F3A0E1467733/39/57def902/Hashtable.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/99258562-0D64-4271-98DD-F3A0E1467733/f5/51294791/Int32.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/problem/ProblemManager.cs" root0="FORCE_HIGHLIGHTING" />
->>>>>>> 2370cb6088d9b383ca621c32297d6ce593be527b
->>>>>>> f52b5ba68e1e9011768cae1ef0792ba85aaebb2b
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -456,7 +406,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/parser_testing/ParserTesting.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/problem/ProblemManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/code_executor/CodeExecutor.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/problem/Problem.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/problem/Problems/ObjectContainer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/problem/Problems/object_kinds/StringObjectScr.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/problem/Problems/object_kinds/NumberObjectScr.cs" />
@@ -468,8 +417,9 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/problem/Problems/TestCase.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/eval/Objects/ArrayObject.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/eval/Objects/Number.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Runner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/test/TestRunner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/problem/Problem.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Runner.cs" />
       </list>
     </option>
   </component>
@@ -485,13 +435,7 @@
     <option name="width" value="1920" />
     <option name="height" value="1200" />
   </component>
-  <component name="ProjectId" id="1kh9VfAYY9us502tP4J5n3p60CJ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-<<<<<<< HEAD
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
-=======
   <component name="ProjectView">
     <navigator currentView="UnityExplorer" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -540,39 +484,44 @@
         <option name="show-project-names" value="true" />
       </pane>
     </panes>
->>>>>>> 2370cb6088d9b383ca621c32297d6ce593be527b
   </component>
   <component name="PropertiesComponent">
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
     <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
-      <option name="selectedOptions">
-        <set />
-      </option>
+      <option name="userSelectedPid" value="false" />
       <method v="2" />
     </configuration>
     <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
-      <option name="selectedOptions">
-        <set />
-      </option>
+      <option name="userSelectedPid" value="false" />
       <method v="2" />
     </configuration>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -584,13 +533,6 @@
       <option name="presentableId" value="Default" />
       <updated>1604691241932</updated>
       <workItem from="1604691244271" duration="258000" />
-<<<<<<< HEAD
-      <workItem from="1604691880729" duration="8872000" />
-      <workItem from="1606142016723" duration="249000" />
-    </task>
-    <servers />
-  </component>
-=======
       <workItem from="1604691880729" duration="14432000" />
       <workItem from="1604777676972" duration="10775000" />
       <workItem from="1604931116460" duration="5596000" />
@@ -598,12 +540,12 @@
       <workItem from="1605033801064" duration="5020000" />
       <workItem from="1605542542949" duration="4801000" />
       <workItem from="1605639602796" duration="987000" />
-      <workItem from="1606943663175" duration="12415000" />
+      <workItem from="1606943663175" duration="12674000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61357000" />
+    <option name="totallyTimeSpent" value="61616000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -616,6 +558,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1200" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14110756" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -671,9 +614,8 @@
       <window_info anchor="right" id="Unit Tests Coverage" order="5" />
     </layout-to-restore>
   </component>
->>>>>>> 2370cb6088d9b383ca621c32297d6ce593be527b
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="1" />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
@@ -687,8 +629,6 @@
       </breakpoints>
     </breakpoint-manager>
   </component>
-<<<<<<< HEAD
-=======
   <component name="editorHistoryManager">
     <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/99258562-0D64-4271-98DD-F3A0E1467733/b5/d7d4d351/Type.cs">
       <provider selected="true" editor-type-id="text-editor">
@@ -1817,42 +1757,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Runner.cs">
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/problem/Problem.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="32" column="33" lean-forward="true" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
+        <state relative-caret-position="180">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
           <folding>
-            <marker date="1606955692952" expanded="true" signature="6:110" ph="..." />
-            <marker date="1606955692952" expanded="true" signature="113:321" ph="/// Subscription Interface ... " />
-            <marker date="1606955692952" expanded="true" signature="356:519" ph="{...}" />
-            <marker date="1606955692952" expanded="true" signature="521:597" ph="/// Runs code, and checks that everything is OK ... " />
-            <marker date="1606955692952" expanded="true" signature="633:5234" ph="{...}" />
-            <marker date="1606955692952" expanded="true" signature="881:1001" ph="/// Last Returned Object on the tests. This will contain an error if there is some. ... " />
-            <marker date="1606955692952" expanded="true" signature="1094:1180" ph="{...}" />
-            <marker date="1606955692952" expanded="true" signature="1367:1432" ph="{...}" />
-            <marker date="1606955692952" expanded="true" signature="1490:2169" ph="{...}" />
-            <marker date="1606955692952" expanded="true" signature="1619:1671" ph="{...}" />
-            <marker date="1606955692952" expanded="true" signature="1714:1810" ph="{...}" />
-            <marker date="1606955692952" expanded="true" signature="1852:1924" ph="{...}" />
-            <marker date="1606955692952" expanded="true" signature="2009:2163" ph="{...}" />
-            <marker date="1606955692952" expanded="true" signature="2180:2525" ph="/// Executes code related to the  current  problem in the ProblemManager ... " />
-            <marker date="1606955692952" expanded="true" signature="2605:3614" ph="{...}" />
-            <marker date="1606955692952" expanded="true" signature="2707:3448" ph="{...}" />
-            <marker date="1606955692952" expanded="true" signature="2739:2877" ph="{...}" />
-            <marker date="1606955692952" expanded="true" signature="2928:3115" ph="{...}" />
-            <marker date="1606955692952" expanded="true" signature="3153:3399" ph="{...}" />
-            <marker date="1606955692952" expanded="true" signature="3643:4595" ph="{...}" />
-            <marker date="1606955692952" expanded="true" signature="3713:3794" ph="{...}" />
-            <marker date="1606955692952" expanded="true" signature="3978:4587" ph="{...}" />
-            <marker date="1606955692952" expanded="true" signature="4014:4174" ph="{...}" />
-            <marker date="1606955692952" expanded="true" signature="4215:4376" ph="{...}" />
-            <marker date="1606955692952" expanded="true" signature="4643:4770" ph="{...}" />
-            <marker date="1606955692952" expanded="true" signature="4701:4764" ph="{...}" />
-            <marker date="1606955692952" expanded="true" signature="4814:4946" ph="{...}" />
-            <marker date="1606955692952" expanded="true" signature="4872:4940" ph="{...}" />
-            <marker date="1606955692952" expanded="true" signature="4998:5129" ph="{...}" />
-            <marker date="1606955692952" expanded="true" signature="5056:5123" ph="{...}" />
-            <marker date="1606955692952" expanded="true" signature="5190:5232" ph="{...}" />
+            <marker date="1606956496406" expanded="false" signature="6:111" ph="..." />
+            <marker date="1606956496406" expanded="true" signature="240:352" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/test/TestRunner.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="21" column="8" lean-forward="true" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
+          <folding>
+            <marker date="1606956224664" expanded="false" signature="6:100" ph="..." />
+            <marker date="1606956224664" expanded="true" signature="141:569" ph="{...}" />
+            <marker date="1606956224664" expanded="true" signature="268:362" ph="{...}" />
+            <marker date="1606956224664" expanded="true" signature="429:562" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1871,30 +1795,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/test/TestRunner.cs">
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Runner.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="21" column="8" lean-forward="true" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
+        <state relative-caret-position="-414">
+          <caret line="65" column="4" selection-start-line="65" selection-start-column="4" selection-end-line="65" selection-end-column="4" />
           <folding>
-            <marker date="1606956224664" expanded="false" signature="6:100" ph="..." />
-            <marker date="1606956224664" expanded="true" signature="141:569" ph="{...}" />
-            <marker date="1606956224664" expanded="true" signature="268:362" ph="{...}" />
-            <marker date="1606956224664" expanded="true" signature="429:562" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/problem/Problem.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
-          <folding>
-            <marker date="1606950281178" expanded="false" signature="6:78" ph="..." />
-            <marker date="1606950281178" expanded="true" signature="207:287" ph="{...}" />
+            <marker date="1606956584275" expanded="true" signature="6:110" ph="..." />
+            <marker date="1606956584275" expanded="true" signature="113:436" ph="/// Subscription Interface ... " />
+            <marker date="1606956584275" expanded="true" signature="471:634" ph="{...}" />
+            <marker date="1606956584275" expanded="true" signature="636:712" ph="/// Runs code, and checks that everything is OK ... " />
+            <marker date="1606956584275" expanded="true" signature="748:5314" ph="{...}" />
+            <marker date="1606956584275" expanded="true" signature="996:1116" ph="/// Last Returned Object on the tests. This will contain an error if there is some. ... " />
+            <marker date="1606956584275" expanded="true" signature="1209:1295" ph="{...}" />
+            <marker date="1606956584275" expanded="true" signature="1482:1547" ph="{...}" />
+            <marker date="1606956584275" expanded="true" signature="1570:2249" ph="{...}" />
+            <marker date="1606956584275" expanded="true" signature="1699:1751" ph="{...}" />
+            <marker date="1606956584275" expanded="true" signature="1794:1890" ph="{...}" />
+            <marker date="1606956584275" expanded="true" signature="1932:2004" ph="{...}" />
+            <marker date="1606956584275" expanded="true" signature="2089:2243" ph="{...}" />
+            <marker date="1606956584275" expanded="true" signature="2260:2605" ph="/// Executes code related to the  current  problem in the ProblemManager ... " />
+            <marker date="1606956584275" expanded="true" signature="2685:3694" ph="{...}" />
+            <marker date="1606956584275" expanded="true" signature="2787:3528" ph="{...}" />
+            <marker date="1606956584275" expanded="true" signature="2819:2957" ph="{...}" />
+            <marker date="1606956584275" expanded="true" signature="3008:3195" ph="{...}" />
+            <marker date="1606956584275" expanded="true" signature="3233:3479" ph="{...}" />
+            <marker date="1606956584275" expanded="true" signature="3723:4675" ph="{...}" />
+            <marker date="1606956584275" expanded="true" signature="3793:3874" ph="{...}" />
+            <marker date="1606956584275" expanded="true" signature="4058:4667" ph="{...}" />
+            <marker date="1606956584275" expanded="true" signature="4094:4254" ph="{...}" />
+            <marker date="1606956584275" expanded="true" signature="4295:4456" ph="{...}" />
+            <marker date="1606956584275" expanded="true" signature="4723:4850" ph="{...}" />
+            <marker date="1606956584275" expanded="true" signature="4781:4844" ph="{...}" />
+            <marker date="1606956584275" expanded="true" signature="4894:5026" ph="{...}" />
+            <marker date="1606956584275" expanded="true" signature="4952:5020" ph="{...}" />
+            <marker date="1606956584275" expanded="true" signature="5078:5209" ph="{...}" />
+            <marker date="1606956584275" expanded="true" signature="5136:5203" ph="{...}" />
+            <marker date="1606956584275" expanded="true" signature="5270:5312" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
   </component>
->>>>>>> 2370cb6088d9b383ca621c32297d6ce593be527b
 </project>
