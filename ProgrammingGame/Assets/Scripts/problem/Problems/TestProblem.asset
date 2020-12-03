@@ -10,8 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a9ef9212070994514afc94fab5ad8ff7, type: 3}
-  m_Name: Problem
+  m_Name: TestProblem
   m_EditorClassIdentifier: 
   Name: TestProblem
   Libs:
   - {fileID: 6244391945046875243, guid: 998a7c444590f466d97a3fae07a957dc, type: 3}
+  cases:
+  - {fileID: 11400000, guid: 4df6e0b8bb10e4d5cbebdbae5598b8fa, type: 2}
+  - {fileID: 11400000, guid: 4df6e0b8bb10e4d5cbebdbae5598b8fa, type: 2}
+  - {fileID: 11400000, guid: ae32c8bb6d9fa4a28877d273e9ee7634, type: 2}

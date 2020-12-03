@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d7732b8065c143eaa96bfa87b3749bb, type: 3}
   m_Name: StringDocumentation
   m_EditorClassIdentifier: 
-  Name: 
-  Type: 0
-  TypeDoc: {fileID: 0}
-  Description: 
-  parameters: []
+  Name: String
+  Type: 1
+  Description: A string can be formed with double quotes `""`.

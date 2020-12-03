@@ -1,4 +1,5 @@
 ﻿using System;
+using Newtonsoft.Json.Linq;
 
 public class String : Object, IEquatable<String>, Hashable
 {
@@ -42,5 +43,16 @@ public class String : Object, IEquatable<String>, Hashable
     public override int GetHashCode()
     {
         return Value != null ? Value.GetHashCode() : 0;
+    }
+
+    public override Object FromJson(JToken token)
+    {
+        value = token.Value<string>();
+        return this;
+    }
+
+    public override bool EqualDeep(Object target)
+    {
+        return Equals(target);
     }
 }

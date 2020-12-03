@@ -19,6 +19,17 @@ public enum ActionType
     /// </summary>
     /// <param>Number of the new line</param>
     NewLineOfCode,
+    
+    /// <summary>
+    /// Finished execution CURRENT context execution.
+    ///
+    /// Doesn't guarantee that the code will start running soon.
+    /// This should be just as a notification, but not as an event listener logic,
+    /// use the callback of CodeExecutor instead for more clear program logic.
+    ///
+    /// </summary>
+    /// <param>The object returned by the user.</param>
+    FinishedExecution,
 }
 
 /// <summary>

@@ -16,6 +16,7 @@ namespace Stdlib
             ctx.Set("append", new StdLibFunc(Append));
             ctx.Set("print", new StdLibFunc(Print)); 
             ctx.Set("move", new StdLibFunc(Move));
+            ctx.Set("cancel", new StdLibFunc(Cancel));
             if (libs == null) return ctx;
             for (int i = 0; i < libs.Length; i++)
             {
@@ -95,6 +96,21 @@ namespace Stdlib
             Interactor.InteractorTask<Object> interactor = Interactor.Do(ActionType.Move, parameters);
             Object response = interactor.WaitInteraction();
             return response;
+        }
+
+        
+        /// <summary>
+        /// Stops the program from Lua
+        /// </summary>
+        /// <param name="parameters"></param>
+        /// <name>
+        /// cancel
+        /// </name>
+        /// <returns></returns>
+        private static Object Cancel(Object[] _)
+        {
+            Eval.State = Eval.EvalState.CancelledByUser;
+            return Null.NULL;
         }
     }
 

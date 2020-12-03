@@ -15,7 +15,14 @@ public class ProblemManager : MonoBehaviour
     
     private Problem currentProblem;
     
-    public Problem CurrentProblem => currentProblem;
+    public Problem CurrentProblem
+    {
+        get
+        {
+            return currentProblem;
+        }
+        set => currentProblem = value;
+    }
 
     public Problem[] Problems => problems;
     

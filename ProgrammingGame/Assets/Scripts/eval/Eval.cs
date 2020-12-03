@@ -13,7 +13,26 @@ using static Stdlib.Stdlib;
 /// </summary>
 public class Eval
 {
+    public enum EvalState
+    {
+        Stopped,
+        Running,
+        TimeLimitExceeded,
+        CancelledByUser,
+    }
+    
     private int currentLine = 1;
+    private static EvalState _cancelledExecution = EvalState.Stopped;
+
+    /// <summary>
+    /// Set this to cancel the execution and give a reason why!
+    /// </summary>
+    public static EvalState State
+    {
+        set => _cancelledExecution = value;
+        get => _cancelledExecution;
+    }
+    
 
     private int CurrentLine
     {
@@ -35,6 +54,10 @@ public class Eval
 
     private Object EvalExpr(IExpression expr)
     {
+        if (State != EvalState.Running)
+        {
+            return new Error($"error: cancelled execution {State.ToString()}");
+        }
         if (expr == null)
         {
             return Null.NULL;
@@ -180,6 +203,10 @@ public class Eval
 
     private Object EvalStatement(IStatement statement)
     {
+        if (State != EvalState.Running)
+        {
+            return new Error($"error: cancelled execution {State.ToString()}");
+        }
         if (statement == null)
         {
             return null;
@@ -322,6 +349,10 @@ public class Eval
     
     private Object EvalAssignable(IAssignable assignable, Object target)
     {
+        if (State != EvalState.Running)
+        {
+            return new Error($"error: cancelled execution {State.ToString()}");
+        }
         if (assignable == null) return Null.NULL;
         if (target.IsError()) return target;
         
@@ -422,6 +453,10 @@ public class Eval
     
     public Object EvaluateNode(Node node)
     {
+        if (State != EvalState.Running)
+        {
+            return new Error($"error: cancelled execution {State.ToString()}");
+        }
         if (node == null)
         {
             return Null.NULL;

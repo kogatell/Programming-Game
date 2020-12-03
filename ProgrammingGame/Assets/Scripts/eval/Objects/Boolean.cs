@@ -36,4 +36,9 @@ public class Boolean : Object
         return value.ToString();
     }
 
+
+    public override bool EqualDeep(Object target)
+    {
+        return this == target;
+    }
 }

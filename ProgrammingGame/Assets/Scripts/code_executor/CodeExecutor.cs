@@ -1,5 +1,6 @@
 ﻿
 using System.Threading;
+using interactor;
 using Relua;
 using Relua.AST;
 using UnityEngine;
@@ -23,28 +24,58 @@ public class CodeExecutor
     {
         new Thread(() =>
         {
+            Debug.Log("Starting to run some code...");
             Eval ev = new Eval();
             Parser parser = new Parser(code, new Parser.Settings());
             try
             {
                 Block statements = parser.Read();
+                Eval.State = Eval.EvalState.Running;
                 Object node = ev.EvaluateNode(statements);
+                Interactor.Do(ActionType.FinishedExecution, new []{node});
                 eventToRun(node);
-                /*Debug.Log($"evaluator returned a {node.Type()} of val {node}");
-                
-                if (node.IsError())
-                {
-                    Error err = node as Error;
-                    Debug.LogWarning($"program returned the following error: {err.Message}");
-                }*/
             }
             catch (ParserException excpt)
             {
+                Eval.State = Eval.EvalState.Stopped;
+                eventToRun(new Error($@"syntax error on line: {excpt.Line} and column: {excpt.Column} 
+                    - {excpt.Message}"));
                 Debug.LogWarning(
                     $@"syntax error on line: {excpt.Line} and column: {excpt.Column} 
                     - {excpt.Message}
             ");
             }
         }).Start();
+    }
+
+    /// <summary>
+    /// Evaluate a function returned by the user
+    /// </summary>
+    /// <param name="func"></param>
+    /// <param name="parameters"></param>
+    /// <param name="toRunWhenFinished"></param>
+    /// <returns></returns>
+    public static void CallFunction(Function func, Object[] parameters = null, CodeExecutorEvent toRunWhenFinished = null)
+    {
+        Eval.State = Eval.EvalState.Running;
+        new Thread(() =>
+        {
+            parameters = parameters ?? new Object[] { };
+            Object obj = func.Call(parameters);
+            Interactor.Do(ActionType.FinishedExecution, new Object[] {});
+            // ReSharper disable once UseNullPropagation
+            if (toRunWhenFinished != null)
+            {
+                toRunWhenFinished(obj);
+            }
+        }).Start();
+    }
+
+    /// <summary>
+    /// Clean way of notifying from a component to the CodeExecutor that it time limit exceeded.
+    /// </summary>
+    public static void CancelExecutionTimeLimitExceeded()
+    {
+        Eval.State = Eval.EvalState.TimeLimitExceeded;
     }
 }

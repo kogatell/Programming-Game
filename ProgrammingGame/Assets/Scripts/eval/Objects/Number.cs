@@ -46,6 +46,12 @@ public class Number : Object, IEquatable<Number>, Hashable
         return Equals((Number) obj);
     }
 
+
+    public override bool EqualDeep(Object target)
+    {
+        return Equals(target);
+    }
+
     public override int GetHashCode()
     {
         return Value.GetHashCode();

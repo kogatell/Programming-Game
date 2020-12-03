@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f61025625ac1e44a7a52006aacd9a0f8, type: 3}
   m_Name: Vector2
   m_EditorClassIdentifier: 
-  Name: 
+  Name: Vector2
   Type: 0
-  Description: 
-  ElementDocs: []
+  Description: Array of 2 numbers which represents a vector of size 2.
+  ElementDocs:
+  - {fileID: 11400000, guid: 60b53c6b68f9a492080c40f62f95856a, type: 2}
+  - {fileID: 11400000, guid: 60b53c6b68f9a492080c40f62f95856a, type: 2}

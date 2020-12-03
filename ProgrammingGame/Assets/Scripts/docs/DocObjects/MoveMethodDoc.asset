@@ -10,7 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ced571d4fc3324dcf89030ea80a44da5, type: 3}
-  m_Name: Move
+  m_Name: MoveMethodDoc
   m_EditorClassIdentifier: 
-  Parameters: []
-  Return: {fileID: 0}
+  Name: move
+  Type: 0
+  Description: 
+  Parameters:
+  - {fileID: 11400000, guid: 0f3ef433932644d6581ad8ce470d1e55, type: 2}
+  Return: {fileID: 11400000, guid: 60b53c6b68f9a492080c40f62f95856a, type: 2}

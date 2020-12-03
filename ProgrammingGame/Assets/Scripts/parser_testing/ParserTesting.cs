@@ -18,7 +18,55 @@ public class ParserTesting : MonoBehaviour
     /// </summary>
     void Start()
     {
-        RunMoveExample();
+        // RunMoveExample();
+        RunFunctionAndCancelExecOutside();
+    }
+
+    public void RunFunctionAndCancelExec()
+    {
+        string code = @"                
+            return function()
+                print(""this should be printed"")
+                cancel() 
+                print(""THIS SHOULDN'T BE PRINTED"");
+            end
+        ";
+        Function handler = null;
+        CodeExecutor codeExecutor = new CodeExecutor(_ =>
+        {
+            handler = _ as Function;
+            Debug.Log("Running function...");
+            CodeExecutor.CallFunction(handler);
+            Debug.Log($"Function stopped. Evaluator state: {Eval.State}");
+            
+        });
+        codeExecutor.Execute(code);
+        
+    }
+    
+    public void RunFunctionAndCancelExecOutside()
+    {
+        string code = @"                
+            return function()
+                for i=0, 1000000000 do -- Infinite loop, so we can cancel.                    
+                end
+                    
+                print(""THIS SHOULDN'T BE PRINTED"");
+            end
+        ";
+        Function handler = null;
+        CodeExecutor codeExecutor = new CodeExecutor(_ =>
+        {
+            handler = _ as Function;
+            Debug.Log("Running function...");
+            CodeExecutor.CallFunction(handler, null, __ =>
+            {
+                Debug.Log($"Finished with state: {Eval.State}");
+            });
+            CodeExecutor.CancelExecutionTimeLimitExceeded();
+
+        });
+        codeExecutor.Execute(code);
     }
 
     public void RunMoveExample()
@@ -39,6 +87,7 @@ public class ParserTesting : MonoBehaviour
                 Error err = node as Error;
                 Debug.LogWarning($"program returned the following error: {err.Message}");
             }
+            Debug.Log($"Evaluator EndState: {Eval.State}");
         });
         codeExecutor.Execute(code);
     }

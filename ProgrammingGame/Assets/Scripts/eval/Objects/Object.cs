@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using UnityEngine;
 
 public abstract class Object
@@ -54,4 +57,65 @@ public abstract class Object
     {
         return Type() == Number.Name;
     }
-} 
+
+    public static Object FromJsonString(string json)
+    {
+        JObject parsedJson = JObject.Parse(json);
+        JToken data = parsedJson["data"];
+        
+        return ObjectJSON.ParseJsonToken(data);
+    }
+
+    public virtual Object FromJson(JToken token) { return Null.NULL; }
+
+    public virtual bool EqualDeep(Object target)
+    {
+        return target == this;
+    }
+
+
+
+}
+
+
+class ObjectJSON
+{
+    public static Object ParseJsonToken(JToken token)
+    {
+        switch (token.Type)
+        {
+            case JTokenType.Array:
+            {
+                return new ArrayObject().FromJson(token);
+            }
+
+            case JTokenType.String:
+            {
+                return new String("").FromJson(token);
+            }
+
+            case JTokenType.Boolean:
+            {
+                return Boolean.FromBool(token.Value<bool>());
+            }
+
+            case JTokenType.Integer:
+            {
+                return new Number(token.Value<double>());
+            }
+
+            case JTokenType.Null:
+            {
+                return Null.NULL;
+            }
+
+            case JTokenType.Object:
+            {
+                return new Table().FromJson(token);
+            }
+        }
+
+        return null;
+    }
+    
+}

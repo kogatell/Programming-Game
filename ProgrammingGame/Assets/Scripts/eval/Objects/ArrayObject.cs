@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Newtonsoft.Json.Linq;
 using UnityEngine;
 
 /// <summary>
@@ -136,5 +138,33 @@ public class ArrayObject : Object
       }
       print += "}";
       return print;
+   }
+
+
+   public override Object FromJson(JToken token)
+   {
+      var arrayToken = token.ToArray();
+      Object[] arrayObjects = new Object[arrayToken.Length];
+      int i = 0;
+      foreach (var tokenElement in arrayToken)
+      {
+         arrayObjects[i] = ObjectJSON.ParseJsonToken(tokenElement);
+         i++;
+      }
+      array = arrayObjects.ToList();
+      return this;
+   }
+
+   public override bool EqualDeep(Object target)
+   {
+      if (!(target is ArrayObject arrayObj)) return false;
+      for (int i = 0; i < arrayObj.array.Count; ++i)
+      {
+         if (!arrayObj.array[i].EqualDeep(array[i]))
+         {
+            return false;
+         }
+      }
+      return true;
    }
 }

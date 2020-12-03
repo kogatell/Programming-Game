@@ -50,7 +50,7 @@ namespace interactor
             }
         }
 
-        private static Action receivedData;
+        private static Action _receivedData;
 
         /// <summary>
         /// Does the desired action with the passed parameters
@@ -62,19 +62,19 @@ namespace interactor
         public static InteractorTask<Object> Do(ActionType actionType, Object[] parameters)
         {
             InteractorTask<Object> interactor = new InteractorTask<Object>();
-            receivedData = new Action(actionType, parameters, interactor, SetResponseCb);
+            _receivedData = new Action(actionType, parameters, interactor, SetResponseCb);
             return interactor;
         }
 
         public static Action GetAction()
         {
-            return receivedData;
+            return _receivedData;
         }
 
         private static void SetResponseCb(Object response)
         {
-            receivedData.Interactor.Give(response);
-            receivedData = null;
+            _receivedData.Interactor.Give(response);
+            _receivedData = null;
         }
 
     }

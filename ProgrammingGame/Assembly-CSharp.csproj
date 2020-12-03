@@ -60,6 +60,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\CameraScript.cs" />
      <Compile Include="Assets\Scripts\PlayerScript.cs" />
+     <Compile Include="Assets\Scripts\Runner.cs" />
      <Compile Include="Assets\Scripts\code_executor\CodeExecutor.cs" />
      <Compile Include="Assets\Scripts\docs\Any.cs" />
      <Compile Include="Assets\Scripts\docs\Doc.cs" />
@@ -103,6 +104,13 @@
      <Compile Include="Assets\Scripts\parser_testing\ParserTesting.cs" />
      <Compile Include="Assets\Scripts\problem\Problem.cs" />
      <Compile Include="Assets\Scripts\problem\ProblemManager.cs" />
+     <Compile Include="Assets\Scripts\problem\Problems\ObjectContainer.cs" />
+     <Compile Include="Assets\Scripts\problem\Problems\TestCase.cs" />
+     <Compile Include="Assets\Scripts\problem\Problems\object_kinds\NumberObjectScr.cs" />
+     <Compile Include="Assets\Scripts\problem\Problems\object_kinds\StringObjectScr.cs" />
+     <Compile Include="Assets\Scripts\test\TestRunner.cs" />
+     <Compile Include="Assets\Scripts\test\TestRunnerButton.cs" />
+     <None Include="Assets\JsonDotNet\link.xml" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>/Users/gabivlj/programming/C#/Programming-Game/ProgrammingGame/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
@@ -306,6 +314,9 @@
  </Reference>
  <Reference Include="UnityEngine.XRModule">
  <HintPath>/Applications/Unity/Hub/Editor/2019.4.1f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
+ </Reference>
+ <Reference Include="Newtonsoft.Json">
+ <HintPath>/Users/gabivlj/programming/C#/Programming-Game/ProgrammingGame/Assets/JsonDotNet/Assemblies/Standalone/Newtonsoft.Json.dll</HintPath>
  </Reference>
  <Reference Include="netstandard">
  <HintPath>/Applications/Unity/Hub/Editor/2019.4.1f1/Unity.app/Contents/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

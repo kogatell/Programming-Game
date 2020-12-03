@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Newtonsoft.Json.Linq;
 
 interface Hashable
 {
@@ -11,6 +13,7 @@ public class Table : Object
 {
     private Dictionary<Object, Object> hashables;
     private Dictionary<Object, Object>   nonHashables;
+    
     
     public const string Name = "Table";
 
@@ -63,5 +66,28 @@ public class Table : Object
         {
             nonHashables[key] = value;
         }
+    }
+
+    public override bool EqualDeep(Object target)
+    {
+        if (!(target is Table t)) return false;
+        foreach (Object key in t.hashables.Keys)
+        {
+            if (!hashables.ContainsKey(key)) return false;
+            if (hashables[key] != t.hashables[key]) return false;
+        }
+
+        return true;
+    }
+
+    public override Object FromJson(JToken token)
+    {
+        JObject tokenDict = token.Value<JObject>();
+        foreach (KeyValuePair<string, JToken> pair in tokenDict)
+        {
+            Set(new String(pair.Key), ObjectJSON.ParseJsonToken(pair.Value));
+        }
+
+        return this;
     }
 }
