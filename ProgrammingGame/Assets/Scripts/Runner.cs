@@ -135,7 +135,6 @@ public class Runner : MonoBehaviour
         codeExecutor.Execute(code);
         InformSubscribersStartExecution();
         state = RunnerState.Running;
-        // TODO: Check tests of a problem
     }
 
     private void NextCase()
