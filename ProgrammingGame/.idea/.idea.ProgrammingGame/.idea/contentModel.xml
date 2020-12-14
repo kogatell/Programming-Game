@@ -41,6 +41,7 @@
               <e p="Boolean.cs" t="Include" />
               <e p="Error.cs" t="Include" />
               <e p="Function.cs" t="Include" />
+              <e p="FunctionHashMap.cs" t="Include" />
               <e p="Null.cs" t="Include" />
               <e p="Number.cs" t="Include" />
               <e p="Object.cs" t="Include" />

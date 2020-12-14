@@ -5,6 +5,10 @@ using interactor;
 using UnityEngine;
 
 
+/// TODO
+/// Do a method called ExecuteProblemDataStructure which will
+/// be a special case which uses a hash map returned by the user
+
 /// <summary>
 /// Subscription Interface
 ///
@@ -26,13 +30,31 @@ public interface ISubscriberRunner
 
 /// <summary>
 /// Runs code, and checks that everything is OK
+///
+/// This is the main class and component that the game will use for checking how
+/// user code is going.
+///
+///
+/// When you wanna run a problem get this component and
+/// run the problem.
 /// </summary>
 public class Runner : MonoBehaviour
 {
     private static List<ISubscriberRunner> subscribers = new List<ISubscriberRunner>();
 
+    
+    /// <summary>
+    /// Will be filled on `Waiting`
+    ///
+    /// If there is an error it will appear here
+    ///
+    /// If there is success it will appear here
+    /// </summary>
     private Object lastReturnedObject;
 
+    /// <summary>
+    /// Current problem test cases (internal logic
+    /// </summary>
     private TestCase[] cases;
 
     private int currentCase = -1;
@@ -40,15 +62,31 @@ public class Runner : MonoBehaviour
     private Function currentTestingFunction;
 
     /// <summary>
-    /// Last Returned Object on the tests. This will contain an error if there is some.
+    /// Will be filled on `Waiting`
+    ///
+    /// If there is an error it will appear here
+    ///
+    /// If there is success it will appear here
     /// </summary>
     public Object LastReturnedObject => lastReturnedObject;
     
     public enum RunnerState
     {
+        /// <summary>
+        /// Waiting: waits for more input
+        /// </summary>
         Waiting,
+        /// <summary>
+        /// Is running the main code
+        /// </summary>
         Running,
+        /// <summary>
+        /// Is checking for tests (still running code)
+        /// </summary>
         CheckingTests,
+        /// <summary>
+        /// Checking next test! (still running code)
+        /// </summary>
         NextTest
     }
 
@@ -56,6 +94,11 @@ public class Runner : MonoBehaviour
     public RunnerState state = RunnerState.Waiting;  
 
     private float _localTimer = 0.0f;
+    
+    
+    /// <summary>
+    /// Max time that will take executing code of the user in seconds
+    /// </summary>
     [SerializeField]
     private float _maxTimeExecution = 10.0f;
 
@@ -96,17 +139,21 @@ public class Runner : MonoBehaviour
     /// <summary>
     /// Executes code related to the  current  problem in the ProblemManager
     ///
-    /// Will test the outputs
+    /// Will get the function returned by the user and start the test cases
     /// 
-    /// Will inform all subscribers about these vents
+    /// Will inform all subscribers about these events
     /// </summary>
     /// <param name="code"></param>
     /// <param name="useReturnedFunction">if it should use a returned function by the user</param>
     public void ExecuteViaProblem(string code, bool useReturnedFunction = true)
     {
+        // Reset current case
         currentCase = -1;
+        
+        // Init main codeExecutor
         CodeExecutor codeExecutor = new CodeExecutor(node =>
         {
+            // Check for errors
             if (node is Error)
             {
                 lastReturnedObject = node;
@@ -114,6 +161,7 @@ public class Runner : MonoBehaviour
                 return;
             }
             
+            // Special case that we won't use
             if (!useReturnedFunction)
             {
                 InformSubscribersStartTests();
@@ -121,7 +169,8 @@ public class Runner : MonoBehaviour
                 lastReturnedObject = node;
                 return;
             }
-
+            
+            // Now we are talking, this is the most normal case.
             if (node is Function fn)
             {
                 state = RunnerState.CheckingTests;
@@ -137,6 +186,10 @@ public class Runner : MonoBehaviour
         state = RunnerState.Running;
     }
 
+    /// <summary>
+    /// Goes to the next test case and will set the
+    /// runner state on waiting if it's the last.
+    /// </summary>
     private void NextCase()
     {
         currentCase++;

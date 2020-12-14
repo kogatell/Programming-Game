@@ -79,6 +79,7 @@
      <Compile Include="Assets\Scripts\eval\Objects\Boolean.cs" />
      <Compile Include="Assets\Scripts\eval\Objects\Error.cs" />
      <Compile Include="Assets\Scripts\eval\Objects\Function.cs" />
+     <Compile Include="Assets\Scripts\eval\Objects\FunctionHashMap.cs" />
      <Compile Include="Assets\Scripts\eval\Objects\Null.cs" />
      <Compile Include="Assets\Scripts\eval\Objects\Number.cs" />
      <Compile Include="Assets\Scripts\eval\Objects\Object.cs" />

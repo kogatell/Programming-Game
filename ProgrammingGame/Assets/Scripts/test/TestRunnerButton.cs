@@ -24,6 +24,18 @@ public class TestRunnerButton : MonoBehaviour
                 print(parameters)
                 return parameters
             end
+            
+            function add(this)
+                this.value = this.value + 1
+            end
+
+            function new() 
+                this = {
+                    value = 1, 
+                    add = add
+                }
+                return this
+            end
             return test
         ", true);
     }

@@ -29,7 +29,6 @@ public class ProblemManager : MonoBehaviour
     void Awake()
     {
         if (instance != null) return;
-        DontDestroyOnLoad(gameObject);
         currentProblem = problems[0];
         instance = this;
     }

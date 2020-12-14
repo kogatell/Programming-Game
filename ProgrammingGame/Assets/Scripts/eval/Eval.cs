@@ -145,7 +145,9 @@ public class Eval
                 }
                 if (variable is Table table)
                 {
-                    return table.Get(idx);
+                    Object obj = table.Get(idx);
+                    //todo: if it is a function return FunctionHashMap which passes a parameter
+                    return obj;
                 }
                 if (idx is Slice slice)
                 {
@@ -392,7 +394,6 @@ public class Eval
 
                 if (value is Table table)
                 {
-                    
                     table.Set(idx, target);
                     return Null.NULL;
                 }
