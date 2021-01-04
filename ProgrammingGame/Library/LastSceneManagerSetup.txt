@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/Gabi Scene.unity
+- path: Assets/Scenes/Dani Scene.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
