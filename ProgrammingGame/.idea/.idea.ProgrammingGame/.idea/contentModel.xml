@@ -76,6 +76,7 @@
           <e p="libs" t="Include">
             <e p="ArrayLib.cs" t="Include" />
             <e p="MathLib.cs" t="Include" />
+            <e p="StringLib.cs" t="Include" />
             <e p="TableLib.cs" t="Include" />
             <e p="TerminalLib.cs" t="Include" />
           </e>

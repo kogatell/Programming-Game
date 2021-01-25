@@ -243,9 +243,16 @@ public class Eval
             // Wh
             CurrentLine = node.line;
         }
-
+        
+        
+        
         switch (typeName)
         {
+            case Statements.While:
+            {
+                return EvaluateWhile(statement as While);
+            }
+            
             case Statements.NumericFor:
             {
                 NumericFor forStmt = statement as NumericFor;
@@ -718,4 +725,18 @@ public class Eval
         
         return Null.NULL;
     }
+
+    public Object EvaluateWhile(While w)
+    {
+        Object e = EvalExpr(w.Condition);
+        while (e.ToBool().Value)
+        {
+            Object ret = EvaluateNode(w.Block);
+            if (ret.IsError()) return ret;
+            if (returned != null) return ret;
+            e = EvalExpr(w.Condition);
+        }
+        return Null.NULL;
+    }
+    
 }

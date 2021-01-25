@@ -36,6 +36,8 @@ public static class Statements
 
     public const string NumericFor = "NumericFor";
 
+    public const string While = "While";
+
 }
 
 public static class Assignables

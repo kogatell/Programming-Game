@@ -28,6 +28,7 @@ namespace Stdlib
             // Tries to convert to string, always succeeds
             ctx.Set("string", new StdLibFunc(ToString));
             ctx.Set("table", new StdLibFunc((_) => new Table()));
+
             // Declare null constant
             ctx.Set("null", Null.NULL);
           
