@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9ef9212070994514afc94fab5ad8ff7, type: 3}
+  m_Name: Problem_valid_paren
+  m_EditorClassIdentifier: 
+  Statement: 'Given a string s containing just the characters ''('', '')'', ''{'',
+    ''}'', ''['' and '']'', determine if the input string is valid.  An input string
+    is valid if:  Open brackets must be closed by the same type of brackets. Open
+    brackets must be closed in the correct order. '
+  Name: Valid Parenthesis
+  Libs: []
+  Cases:
+  - {fileID: 11400000, guid: 3ec51f341c13e4edd89dbd22e6fce229, type: 2}
+  - {fileID: 11400000, guid: c03abeac0b1704562b46e6f661196e97, type: 2}
+  - {fileID: 11400000, guid: bc49848e7b0bd416dadb34575734798b, type: 2}
+  - {fileID: 11400000, guid: 3e4608d416a71425f8f9c861f9bbd0a8, type: 2}
+  - {fileID: 11400000, guid: 3009ab7b4047841a3882a1c0553a76ee, type: 2}
+  - {fileID: 11400000, guid: bde43a8350be7479d8ede887839f07ff, type: 2}

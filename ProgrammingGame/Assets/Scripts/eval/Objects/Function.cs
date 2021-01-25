@@ -11,14 +11,13 @@ public interface Caller
 public class Function : Object, Caller
 {
     public const string Name = "Function";
-    
-    private Eval localEvaluator;
     private FunctionDefinition definition;
     
     /// <summary>
     /// Keep a reference of the parent context every time.
     ///
     /// This is dangerous, we can have a stale context, so it's convenient to update the context of the function before calling it
+    /// with <see cref="UpdateContext"/>
     /// 
     /// </summary>
     private Context parent;
@@ -33,7 +32,7 @@ public class Function : Object, Caller
     {
         Context ctx = new Context(parent);
         // Reset previous evaluator
-        localEvaluator = new Eval(ctx);
+        Eval localEvaluator = new Eval(ctx);
         if (objects.Length != definition.ArgumentNames.Count)
         {
             return new Error($"error, Different number of arguments passed on a call of `{definition}`. Expected {objects.Length}, got: {definition.ArgumentNames.Count}");
@@ -47,6 +46,12 @@ public class Function : Object, Caller
         return localEvaluator.EvaluateNode(definition.Block);
     }
 
+    /// <summary>
+    /// Previously we didn't have this function on the Function class. But we now really need it because
+    /// we can't let user functions context become stale after calling them. This bug was discovered after
+    /// using the same function over an over on a recursive call.
+    /// </summary>
+    /// <param name="parentCtx"></param>
     public void UpdateContext(Context parentCtx)
     {
         parent = parentCtx;
