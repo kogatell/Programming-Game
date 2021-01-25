@@ -1,7 +1,7 @@
 const testCase = require('../test_fn.js');
+
 var isPalindrome = function (s) {
   s = s.toLowerCase();
-  // s = s.split('').filter(e => isGood(e)).join('');
   for (let i = 0, j = s.length - 1; i < j; i++, j--) {
     if (s[i] !== s[j] && isGood(s[i]) && isGood(s[j])) return false;
     else if (!isGood(s[i])) {

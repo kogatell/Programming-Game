@@ -14,16 +14,24 @@ public class Function : Object, Caller
     
     private Eval localEvaluator;
     private FunctionDefinition definition;
-    private Context ctx;
+    
+    /// <summary>
+    /// Keep a reference of the parent context every time.
+    ///
+    /// This is dangerous, we can have a stale context, so it's convenient to update the context of the function before calling it
+    /// 
+    /// </summary>
+    private Context parent;
     
     public Function(FunctionDefinition def, Context callerContext)
     {
         definition = def;
-        ctx = callerContext;
+        parent = callerContext;
     }
 
     public Object Call(Object[] objects)
     {
+        Context ctx = new Context(parent);
         // Reset previous evaluator
         localEvaluator = new Eval(ctx);
         if (objects.Length != definition.ArgumentNames.Count)
@@ -34,9 +42,14 @@ public class Function : Object, Caller
         for (int i = 0; i < objects.Length; ++i)
         {
             Object obj = objects[i];
-            ctx.Set(definition.ArgumentNames[i], obj);
+            ctx.Set(definition.ArgumentNames[i], obj.Clone());
         }
         return localEvaluator.EvaluateNode(definition.Block);
+    }
+
+    public void UpdateContext(Context parentCtx)
+    {
+        parent = parentCtx;
     }
 
     public override string Type()

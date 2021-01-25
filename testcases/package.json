@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "stack": "node stack/stack.js",
     "twosum": "node twosum/twosum.js",
-    "ispalindrome": "node ispalindrome/ispalindrome.js"
+    "ispalindrome": "node ispalindrome/ispalindrome.js",
+    "preorder": "node preorder/preorder.js"
   },
   "author": "",
   "license": "ISC"

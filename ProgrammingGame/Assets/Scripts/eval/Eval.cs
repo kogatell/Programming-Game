@@ -4,6 +4,7 @@
 using System;
 using System.Linq;
 using interactor;
+using Relua;
 using Relua.AST;
 using UnityEngine;
 using static Stdlib.Stdlib;
@@ -138,14 +139,14 @@ public class Eval
                     {
                         if (str.Value.Length < sliceStr.End || 0 > sliceStr.Start || sliceStr.Start > sliceStr.End)
                             return new Error(
-                                $"bad slice formation in string: {sliceStr} with length {str.Value.Length}");
+                                $"at {expr.Inspect()} bad slice formation in string: {sliceStr} with length {str.Value.Length}");
                         return new String(str.Value.Substring(sliceStr.Start, sliceStr.End - sliceStr.Start));
                     }
                     Object idxNumber = idx.ToNumber();
                     if (idxNumber.IsError()) return idxNumber;
                     int i = (int) (idxNumber as Number).value;
                     if (i >= str.Value.Length || i < 0)
-                        return new Error($"string access out of bounds: length {str.Value.Length} idx: {i}");
+                        return new Error($"at {expr.Inspect()} string access out of bounds: length {str.Value.Length} idx: {i}");
                     return new String(str.Value[i].ToString());
                 }
 
@@ -276,7 +277,7 @@ public class Eval
                     if (result.IsError()) return result;
                     if (result.Type() != ReturnHolder.Name)
                     {
-                        if (j >= assignment.Targets.Count) return new Error("too few variables in destructuring");
+                        if (j >= assignment.Targets.Count) return new Error($"at {statement.Inspect()} too few variables in destructuring");
                         IAssignable assignable = assignment.Targets[j];
                         Object possibleErr = EvalAssignable(assignable, result);
                         if (possibleErr.IsError()) return possibleErr;
@@ -286,7 +287,7 @@ public class Eval
                     ReturnHolder returnHold = result as ReturnHolder;
                     foreach (Object returnVal in returnHold.Returns)
                     {
-                        if (j >= assignment.Targets.Count) return new Error("too few variables in destructuring");
+                        if (j >= assignment.Targets.Count) return new Error($"at {statement.Inspect()} too few variables in destructuring");
                         IAssignable assignable = assignment.Targets[j];
                         Object possibleErr = EvalAssignable(assignable, returnVal);
                         if (possibleErr.IsError()) return possibleErr;
@@ -295,7 +296,7 @@ public class Eval
                 }
                 if (j != assignment.Targets.Count)
                 {
-                    return new Error("too much variables in destructuring");
+                    return new Error($"at {statement.Inspect()} too much variables in destructuring");
                 }
                 break;
             }
@@ -342,8 +343,18 @@ public class Eval
                 }
                 if (function.Type() != Function.Name && function.Type() != StdLibFunc.Name && function.Type() != FunctionHashMap.Name)
                 {
-                    return new Error($"function call is not possible because the object being called is not a function");
+                    return new Error($"at {statement.Inspect()} function call is not possible because the object {function} is not a function, it's of type {function.Type()}");
                 }
+
+                // We update the context on a function because the initial parent context
+                // might be stale
+                // We don't care about Stdlib functions because they won't be recursive or access the context in any way
+                // or on a dangerous way
+                if (function is Function functionOriginal)
+                {
+                    functionOriginal.UpdateContext(context);
+                }
+                
                 Caller fn = function as Caller;
                 return fn.Call(parameters);
             }
@@ -373,7 +384,7 @@ public class Eval
             }
 
             default: 
-                Debug.LogWarning($"unknown statement {typeName}");
+                Debug.LogWarning($"at {statement.Inspect()} unknown statement {typeName}");
                 break;
         }
 
@@ -411,7 +422,7 @@ public class Eval
                 
                 // It's possible that returns null
                 if (value == null) 
-                    return new Error("unexpected error accessing table");
+                    return new Error($"at {assignable.Inspect()} unexpected error accessing table");
                 
                 // This is indeed an array, we are gonna evaluate
                 if (value is ArrayObject arr && arr.array.Count > 0)
@@ -420,14 +431,14 @@ public class Eval
                     // instead of accessing it, inform them.
                     if (idx is Slice)
                     {
-                        return new Error("you can't use a slice for assignable table access");
+                        return new Error($"at {assignable.Inspect()} you can't use a slice for assignable table access");
                     }
                     
                     // Try toNumber
                     idx = idx.ToNumber();
                     if (!idx.IsNumeric())
                     {
-                        return new Error($"couldn't pass index {idx} to numeric value or slice");
+                        return new Error($"at {assignable.Inspect()} couldn't pass index {idx} to numeric value or slice");
                     }
                     // Set the element
                     Object possibleErr = (value as ArrayObject).Set((int) (idx as Number).value, target);
@@ -455,14 +466,14 @@ public class Eval
 
                 if (value is String)
                 {
-                    return new Error("strings are immutable by default");
+                    return new Error($"at {assignable.Inspect()} strings are immutable by default");
                 }
 
                 return Null.NULL;
             }
             
             default:
-                Debug.LogWarning($"unknown assignable: {assignable.GetType().Name}");
+                Debug.LogWarning($"at {assignable.Inspect()} unknown assignable: {assignable.GetType().Name}");
                 break;
         }
         return Null.NULL;

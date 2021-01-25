@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9ef9212070994514afc94fab5ad8ff7, type: 3}
+  m_Name: Problem_preorder
+  m_EditorClassIdentifier: 
+  Statement: 'Given the root of a binary tree, return the preorder traversal of its
+    nodes'' values. Input: root = [1,null,2,3] Output: [1,2,3]. A tree node is defined
+    as: { left, right, value}'
+  Name: Preorder Traversal
+  Libs: []
+  Cases:
+  - {fileID: 11400000, guid: a8c5973397f7e427988870b4b3fdb540, type: 2}
