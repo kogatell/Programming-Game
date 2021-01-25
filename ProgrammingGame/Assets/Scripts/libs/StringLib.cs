@@ -37,9 +37,11 @@ public class StringLib : Lib
 
     #endregion
 
-    public override Context InjectLibrary(Context ctx)
+    public override Context InjectLibrary(Context context)
     {
-	    ctx.Set("char_code", new StdLibFunc(param =>
+	    Table ctx = new Table();
+	    
+	    ctx.Set(new String("char_code"), new StdLibFunc(param =>
 	    {
 		    if (param.Length != 1) return new Error("char_code expects 1 parameter to be a string");
 		    if (!(param[0] is String str))
@@ -50,7 +52,7 @@ public class StringLib : Lib
 		    return new Number(c);
 	    }));
 
-	    ctx.Set("lowercase", new StdLibFunc(param =>
+	    ctx.Set(new String("lowercase"), new StdLibFunc(param =>
 	    {
 		    if (param.Length != 1) return new Error("lowercase expects 1 parameter to be a string");
 		    if (!(param[0] is String str))
@@ -60,7 +62,7 @@ public class StringLib : Lib
 		    return new String(str.Value.ToLower());
 	    }));
 	    
-	    ctx.Set("uppercase", new StdLibFunc(param =>
+	    ctx.Set(new String("uppercase"), new StdLibFunc(param =>
 	    {
 		    if (param.Length != 1) return new Error("uppercase expects 1 parameter to be a string");
 		    if (!(param[0] is String str))
@@ -70,7 +72,7 @@ public class StringLib : Lib
 		    return new String(str.Value.ToUpper());
 	    }));
 	    
-	    ctx.Set("split", new StdLibFunc(param =>
+	    ctx.Set(new String("split"), new StdLibFunc(param =>
 	    {
 		    if (param.Length != 2) return new Error("split expects 2 parameter to be strings");
 		    if (!(param[0] is String str))
@@ -83,9 +85,13 @@ public class StringLib : Lib
 		    }
 		    string[] s = str.Value.Split(split.Value.ToCharArray());
 		    Object[] strings = new Object[s.Length];
+		    for (int i = 0; i < s.Length; i++)
+		    {
+			    strings[i] = new String(s[i]);
+		    }
 		    return new ArrayObject(strings.ToList());
 	    }));
-	    
-	    return ctx;
+	    context.Set("string", ctx);
+	    return context;
     }
 }
