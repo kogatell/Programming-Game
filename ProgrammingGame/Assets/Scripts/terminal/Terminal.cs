@@ -19,7 +19,7 @@ public class Terminal : MonoBehaviour
 
 	private float currentTime = 0.0f;
 
-	private float maxExecutionTime = 3f;
+	private float maxExecutionTime = 30f;
 
 	private bool runningCode = false;
 

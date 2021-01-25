@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "stack": "node stack/stack.js",
-    "twosum": "node twosum/twosum.js"
+    "twosum": "node twosum/twosum.js",
+    "ispalindrome": "node ispalindrome/ispalindrome.js"
   },
   "author": "",
   "license": "ISC"
