@@ -72,8 +72,7 @@ public class TerminalLib : Lib
 			{
 				return new Error("expected one parameter only for move, the cell number value of where you wanna move");
 			} 
-			Interactor.Do(ActionType.Move, parameters);
-			return Boolean.True;
+			return Interactor.Do(ActionType.Move, parameters).WaitInteraction();
 		}));
 		context.Set("get_problem", new StdLibFunc(_ => 
 			Interactor.Do(ActionType.GetProblem, null).WaitInteraction())

@@ -64,8 +64,12 @@ public class PlayerMove : MonoBehaviour
     public bool WalkToPoint(int pointNumber)
     {
         if (pointNumber < 0 || pointNumber >= points.Length) return false;
-        walking = true;
         point = points[pointNumber].transform;
+        if (Vector3.Distance(point.position, transform.position) >= 4f)
+        {
+            return false;
+        }
+        walking = true;
         return true;
     }
     

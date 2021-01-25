@@ -217,6 +217,7 @@ public class Runner : MonoBehaviour
         if (currentCase >= cases.Length)
         {
             state = RunnerState.Waiting;
+            
             return;
         }
         state = RunnerState.Running;

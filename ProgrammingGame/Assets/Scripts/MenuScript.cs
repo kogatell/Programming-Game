@@ -36,7 +36,7 @@ public class MenuScript : MonoBehaviour
         {
             if (!isQuit)
             {
-                SceneManager.LoadScene(nameOfScene);
+                SceneManager.LoadScene(1);
             }
             else Application.Quit();
                 

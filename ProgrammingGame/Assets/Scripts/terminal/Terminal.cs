@@ -1,6 +1,7 @@
 ﻿using System;
 using interactor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Terminal : MonoBehaviour
 {
@@ -37,7 +38,10 @@ public class Terminal : MonoBehaviour
 	#endregion
 
 	#region Public Variables
-	
+	[SerializeField]
+	private int numberOfScenes = 3;
+	[SerializeField]
+	private int currentScene = 1;
 	#endregion
 
 	#region Properties
@@ -107,8 +111,16 @@ public class Terminal : MonoBehaviour
 
 		    if (lastReturned == null) return;
 		    terminal.Write("Accepted!");
+		    if (FindObjectsOfType<ProblemHolder>().Length == 1)
+		    {
+			    currentScene = (currentScene + 1) % numberOfScenes;
+			    SceneManager.LoadScene(currentScene);
+			    return;
+		    }
 		    ProblemManager.Instance.CurrentProblemHolder.Destroy();
 		    ProblemManager.Instance.CurrentProblemHolder = null;
+		    // No more problem holders
+		    
 	    }
     }
 

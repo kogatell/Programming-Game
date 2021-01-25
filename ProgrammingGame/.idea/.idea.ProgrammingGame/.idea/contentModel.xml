@@ -17,6 +17,7 @@
             </e>
           </e>
         </e>
+        <e p="FollowPlayer.cs" t="Include" />
         <e p="Fonts" t="Include">
           <e p="editor_fonts" t="Include">
             <e p="Roboto_Mono" t="Include">
