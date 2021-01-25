@@ -362,6 +362,12 @@ public class Eval
             case Statements.Return:
             {
                 Return returnStmt = statement as Return;
+                if (returnStmt.Expressions.Count == 0)
+                {
+                    returned = Null.NULL;
+                    return Null.NULL;
+                }
+
                 // Don't return a return holder because evaluating a ReturnHolder on
                 // every Exp parsing would be a mess.
                 if (returnStmt.Expressions.Count == 1)
@@ -378,7 +384,6 @@ public class Eval
                     returnsRes[i] = EvalExpr(returnStmt.Expressions[i]);
                     if (returnsRes[i].IsError()) return returnsRes[i];
                 }
-
                 returned = new ReturnHolder(returnsRes);
                 return returned;
             }
@@ -554,7 +559,7 @@ public class Eval
                 {
                     IStatement statement = block.Statements[i];
                     Object obj = EvalStatement(statement);
-                    if (obj is ReturnHolder || returned != null)
+                    if (returned != null)
                     {
                         return obj;
                     }
@@ -573,7 +578,7 @@ public class Eval
                 break;
         }
         
-        return returned;
+        return returned == null ? Null.NULL : returned;
     }
 
 

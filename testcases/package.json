@@ -9,7 +9,8 @@
     "twosum": "node twosum/twosum.js",
     "ispalindrome": "node ispalindrome/ispalindrome.js",
     "preorder": "node preorder/preorder.js",
-    "validparenthesis": "node validparenthesis/validparenthesis.js"
+    "validparenthesis": "node validparenthesis/validparenthesis.js",
+    "permutations": "node permutations/permutations.js"
   },
   "author": "",
   "license": "ISC"

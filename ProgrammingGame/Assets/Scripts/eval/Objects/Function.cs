@@ -22,17 +22,30 @@ public class Function : Object, Caller
     /// </summary>
     private Context parent;
     
+    /// <summary>
+    /// Keep track of all of the parents of this function instance, just in case for some reason there is a recursive call
+    /// and that recursive call makes available to the parent its child variables.
+    /// </summary>
+    private Context[] parents = new Context[512];
+    
+    /// <summary>
+    /// The current parent in the recursive call
+    /// </summary>
+    private int currentParent = -1;
+    
     public Function(FunctionDefinition def, Context callerContext)
     {
         definition = def;
         parent = callerContext;
+        parents[++currentParent] = callerContext;
     }
 
     public Object Call(Object[] objects)
     {
-        Context ctx = new Context(parent);
+        Context ctx = new Context(parents[currentParent]);
         // Reset previous evaluator
         Eval localEvaluator = new Eval(ctx);
+        if (currentParent >= 1) currentParent--;
         if (objects.Length != definition.ArgumentNames.Count)
         {
             return new Error($"error, Different number of arguments passed on a call of `{definition}`. Expected {objects.Length}, got: {definition.ArgumentNames.Count}");
@@ -43,6 +56,7 @@ public class Function : Object, Caller
             Object obj = objects[i];
             ctx.Set(definition.ArgumentNames[i], obj.Clone());
         }
+        
         return localEvaluator.EvaluateNode(definition.Block);
     }
 
@@ -54,7 +68,7 @@ public class Function : Object, Caller
     /// <param name="parentCtx"></param>
     public void UpdateContext(Context parentCtx)
     {
-        parent = parentCtx;
+        parents[++currentParent] = parentCtx;
     }
 
     public override string Type()
