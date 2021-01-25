@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9b55c600fecf446983b825ba920f08a, type: 3}
+  m_Name: Testcase_1
+  m_EditorClassIdentifier: 
+  isInstance: 1
+  pipeline: "{\n   \"data\":[\n      [\n         \"sum\",\n         [\n           
+    [\n               1,\n               2,\n               3\n            ]\n        
+    ],\n         6\n      ],\n      [\n         \"value\",\n         null,\n        
+    6\n      ],\n      [\n         \"sum\",\n         [\n            [\n              
+    1,\n               2,\n               3\n            ]\n         ],\n        
+    6\n      ],\n            [\n         \"value\",\n         null,\n         12\n     
+    ]\t\n   ]\n}"
+  jsonData: "{\n     \"data\": null\n}"
+  inputData: "{\n     \"data\": []\n}"

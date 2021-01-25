@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9ef9212070994514afc94fab5ad8ff7, type: 3}
+  m_Name: Problem
+  m_EditorClassIdentifier: 
+  Statement: Given an array of integers nums and an integer target, return indices
+    of the two numbers such that they add up to target.  You may assume that each
+    input would have exactly one solution, and you may not use the same element twice. 
+    You need to return the answer in ascendant order.
+  Name: Two Sum
+  Libs: []
+  Cases:
+  - {fileID: 11400000, guid: 302c85ad7494746a59459df66e9c1658, type: 2}
+  - {fileID: 11400000, guid: 4dd2e76ae128e4208bd3f603678392b6, type: 2}
+  - {fileID: 11400000, guid: 5f6779d55cec7421193701bdf3996c65, type: 2}
+  - {fileID: 11400000, guid: 4212b17fbb93c453ca8fe9b599b01572, type: 2}
+  - {fileID: 11400000, guid: 790ff75fde208412ea1c219bd3986618, type: 2}

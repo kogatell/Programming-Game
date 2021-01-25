@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ced571d4fc3324dcf89030ea80a44da5, type: 3}
+  m_Name: ArrayPop
+  m_EditorClassIdentifier: 
+  Name: array.pop
+  Type: 1
+  Description: Removes the last element of an array and returns it, if it is empty,
+    it returns null
+  Parameters:
+  - {fileID: 11400000, guid: 1b5a2e46e556e43a98823235935d2836, type: 2}
+  Return: {fileID: 11400000, guid: 3d8cfd3370ae848aeaa153ae81a232a3, type: 2}

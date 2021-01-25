@@ -1,0 +1,13 @@
+{
+  "name": "testcases",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test_ds.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "stack": "node stack/stack.js",
+    "twosum": "node twosum/twosum.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

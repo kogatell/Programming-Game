@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$USER_HOME$/Library/Caches/Rider2019.1/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2019.1/resharper-host/local/Transient/ReSharperHost/v191/SolutionCaches/_ProgrammingGame.103561503.00" t="ExcludeRecursive" />
+    <e p="$PROJECT_DIR$" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="AllSkyFree" t="Include">
+          <e p="AllSkyFree_Menu.cs" t="Include" />
+        </e>
+        <e p="EffectExamples" t="Include">
+          <e p="Misc Effects" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="SpawnEffect.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Fonts" t="Include">
+          <e p="editor_fonts" t="Include">
+            <e p="Roboto_Mono" t="Include">
+              <e p="LICENSE.txt" t="Include" />
+              <e p="README.txt" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="JsonDotNet" t="Include">
+          <e p="link.xml" t="Include" />
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="CameraScript.cs" t="Include" />
+          <e p="code_executor" t="Include">
+            <e p="CodeExecutor.cs" t="Include" />
+          </e>
+          <e p="docs" t="Include">
+            <e p="Any.cs" t="Include" />
+            <e p="Doc.cs" t="Include" />
+            <e p="DocArray.cs" t="Include" />
+            <e p="DocKeyPair.cs" t="Include" />
+            <e p="DocMethod.cs" t="Include" />
+            <e p="DocObject.cs" t="Include" />
+            <e p="DocPrimitive.cs" t="Include" />
+            <e p="Type.cs" t="Include" />
+          </e>
+          <e p="eval" t="Include">
+            <e p="Context.cs" t="Include" />
+            <e p="Eval.cs" t="Include" />
+            <e p="Interactions" t="Include">
+              <e p="Actions.cs" t="Include" />
+              <e p="Interactor.cs" t="Include" />
+            </e>
+            <e p="Libraries.cs" t="Include" />
+            <e p="Nodes.cs" t="Include" />
+            <e p="Objects" t="Include">
+              <e p="ArrayObject.cs" t="Include" />
+              <e p="Boolean.cs" t="Include" />
+              <e p="Error.cs" t="Include" />
+              <e p="Function.cs" t="Include" />
+              <e p="FunctionHashMap.cs" t="Include" />
+              <e p="Null.cs" t="Include" />
+              <e p="Number.cs" t="Include" />
+              <e p="Object.cs" t="Include" />
+              <e p="ReturnHolder.cs" t="Include" />
+              <e p="Slice.cs" t="Include" />
+              <e p="StdLibFunc.cs" t="Include" />
+              <e p="String.cs" t="Include" />
+              <e p="Table.cs" t="Include" />
+            </e>
+            <e p="StdLib" t="Include">
+              <e p="Lib.cs" t="Include" />
+              <e p="Stdlib.cs" t="Include" />
+              <e p="TestLib.cs" t="Include" />
+            </e>
+          </e>
+          <e p="libs" t="Include">
+            <e p="ArrayLib.cs" t="Include" />
+            <e p="MathLib.cs" t="Include" />
+            <e p="TableLib.cs" t="Include" />
+            <e p="TerminalLib.cs" t="Include" />
+          </e>
+          <e p="MenuScript.cs" t="Include" />
+          <e p="MovingEnemy.cs" t="Include" />
+          <e p="parser" t="Include">
+            <e p="Relua" t="Include">
+              <e p="Properties" t="Include">
+                <e p="AssemblyInfo.cs" t="Include" />
+              </e>
+              <e p="src" t="Include">
+                <e p="AST.cs" t="Include" />
+                <e p="Exception.cs" t="Include" />
+                <e p="Extensions.cs" t="Include" />
+                <e p="Indent.cs" t="Include" />
+                <e p="OperatorInfo.cs" t="Include" />
+                <e p="Parser.cs" t="Include" />
+                <e p="Stack.cs" t="Include" />
+                <e p="Token.cs" t="Include" />
+                <e p="Tokenizer.cs" t="Include" />
+                <e p="Visitor.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="parser_testing" t="Include">
+            <e p="ParserTesting.cs" t="Include" />
+          </e>
+          <e p="PipelineRunner.cs" t="Include" />
+          <e p="PlatformScript.cs" t="Include" />
+          <e p="PlayerMove.cs" t="Include" />
+          <e p="PlayerScript.cs" t="Include" />
+          <e p="problem" t="Include">
+            <e p="Problem.cs" t="Include" />
+            <e p="ProblemHolder.cs" t="Include" />
+            <e p="ProblemManager.cs" t="Include" />
+            <e p="Problems" t="Include">
+              <e p="ObjectContainer.cs" t="Include" />
+              <e p="TestCase.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Runner.cs" t="Include" />
+          <e p="terminal" t="Include">
+            <e p="LuaREPL.cs" t="Include" />
+            <e p="Terminal.cs" t="Include" />
+          </e>
+          <e p="test" t="Include">
+            <e p="TestRunner.cs" t="Include" />
+            <e p="TestRunnerButton.cs" t="Include" />
+          </e>
+          <e p="text_editor" t="Include">
+            <e p="EditorTest.cs" t="Include" />
+          </e>
+          <e p="utils" t="Include">
+            <e p="Response.cs" t="Include" />
+          </e>
+          <e p="VariableScript.cs" t="Include" />
+        </e>
+        <e p="Shared" t="Include">
+          <e p="Ramps" t="Include">
+            <e p="Editor" t="Include">
+              <e p="RampAssetEditor.cs" t="Include" />
+            </e>
+            <e p="Runtime" t="Include">
+              <e p="RampAsset.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Scripts" t="Include">
+            <e p="AdjustTimeScale.cs" t="Include" />
+            <e p="ProximityActivate.cs" t="Include" />
+            <e p="SimpleCameraController.cs" t="Include" />
+            <e p="SimpleCharacterMotor.cs" t="Include" />
+          </e>
+        </e>
+        <e p="TerminalUI.cs" t="Include" />
+        <e p="TextMesh Pro" t="Include">
+          <e p="Fonts" t="Include">
+            <e p="LiberationSans - OFL.txt" t="Include" />
+          </e>
+          <e p="Resources" t="Include">
+            <e p="LineBreaking Following Characters.txt" t="Include" />
+            <e p="LineBreaking Leading Characters.txt" t="Include" />
+            <e p="Shaders" t="Include">
+              <e p="TMP_Bitmap-Custom-Atlas.shader" t="Include" />
+              <e p="TMP_Bitmap-Mobile.shader" t="Include" />
+              <e p="TMP_Bitmap.shader" t="Include" />
+              <e p="TMP_SDF Overlay.shader" t="Include" />
+              <e p="TMP_SDF-Mobile Masking.shader" t="Include" />
+              <e p="TMP_SDF-Mobile Overlay.shader" t="Include" />
+              <e p="TMP_SDF-Mobile.shader" t="Include" />
+              <e p="TMP_SDF-Surface-Mobile.shader" t="Include" />
+              <e p="TMP_SDF-Surface.shader" t="Include" />
+              <e p="TMP_SDF.shader" t="Include" />
+              <e p="TMP_Sprite.shader" t="Include" />
+              <e p="TMPro.cginc" t="Include" />
+              <e p="TMPro_Properties.cginc" t="Include" />
+              <e p="TMPro_Surface.cginc" t="Include" />
+            </e>
+          </e>
+          <e p="Sprites" t="Include">
+            <e p="EmojiOne Attribution.txt" t="Include" />
+          </e>
+        </e>
+        <e p="TutorialInfo" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="Editor" t="Include">
+              <e p="ReadmeEditor.cs" t="Include" />
+            </e>
+            <e p="Readme.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="ProgrammingGame.sln" t="IncludeFlat" />
+      <e p="Temp/bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
