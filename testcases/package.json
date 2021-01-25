@@ -10,7 +10,8 @@
     "ispalindrome": "node ispalindrome/ispalindrome.js",
     "preorder": "node preorder/preorder.js",
     "validparenthesis": "node validparenthesis/validparenthesis.js",
-    "permutations": "node permutations/permutations.js"
+    "permutations": "node permutations/permutations.js",
+    "longestnonrepeating": "node longestnonrepeating/longestnonrepeating.js"
   },
   "author": "",
   "license": "ISC"
